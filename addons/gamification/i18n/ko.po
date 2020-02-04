@@ -344,7 +344,7 @@ msgid ""
 "</div>"
 msgstr ""
 "<div>\n"
-"    <strong>${object.name} 알림</strong><br/>\n"
+"    <strong>${object.name} 미리 알림</strong><br/>\n"
 "적어도 ${object.remind_update_delay}일 동안 ${object.definition_id.name} 목표(${object.completeness}%에 도달)에 대한 진행 상황을 업데이트 하지 않았습니다. 잊지 마시기 바랍니다.\n"
 "<br/><br/>\n"
 "감사합니다.\n"
@@ -635,7 +635,7 @@ msgid ""
 "A rank correspond to a fixed karma level. The more you have karma, the more your rank is high.\n"
 "                    This is used to quickly know which user is new or old or highly or not active."
 msgstr ""
-"등급은 고정된 카르마 레벨에 해당합니다. 카르마가 많을 수록 등급이 높아집니다. \n"
+"등급은 고정된 명성 레벨에 해당합니다. 명성이 많을 수록 등급이 높아집니다. \n"
 "                     이것은 어떤 사용자가 새롭거나 오래되었는 지 또는 매우 활동적인지 비활성화되었는지 신속하게 알기 위해 사용됩니다."
 
 #. module: gamification
@@ -683,7 +683,7 @@ msgstr "다음에 표시"
 #: model_terms:ir.ui.view,arch_db:gamification.badge_form_view
 #: model_terms:ir.ui.view,arch_db:gamification.gamification_badge_view_search
 msgid "Archived"
-msgstr "보관"
+msgstr "보존"
 
 #. module: gamification
 #: model_terms:ir.ui.view,arch_db:gamification.challenge_form_view
@@ -907,7 +907,7 @@ msgstr "연산 모드"
 #. module: gamification
 #: model:ir.actions.act_window,name:gamification.action_new_simplified_res_users
 msgid "Create User"
-msgstr "사용자 생성"
+msgstr "사용자 만들기"
 
 #. module: gamification
 #: model_terms:ir.actions.act_window,help:gamification.badge_list_action
@@ -1640,7 +1640,7 @@ msgstr "메시지"
 #. module: gamification
 #: model:ir.model.fields,help:gamification.field_gamification_karma_rank__karma_min
 msgid "Minimum karma needed to reach this rank"
-msgstr "이 등급에 도달하기 위해 필요한 최소 카르마"
+msgstr "이 등급에 도달하기 위해 필요한 최소 명성"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_definition__model_id
@@ -1910,7 +1910,7 @@ msgstr "등급명"
 #. module: gamification
 #: model:ir.model,name:gamification.model_gamification_karma_rank
 msgid "Rank based on karma"
-msgstr "등급은 가르마를 기준으로 합니다"
+msgstr "등급은 명성을 기준으로 합니다"
 
 #. module: gamification
 #: model:ir.actions.act_window,name:gamification.gamification_karma_ranks_action
@@ -1926,22 +1926,22 @@ msgstr "등급 목록"
 #. module: gamification
 #: model_terms:gamification.karma.rank,description_motivational:gamification.rank_bachelor
 msgid "Reach the next rank and gain a very magic wand !"
-msgstr ""
+msgstr "다음 순위에 도달하고 마법 지팡이를 얻으세요!"
 
 #. module: gamification
 #: model_terms:gamification.karma.rank,description_motivational:gamification.rank_master
 msgid "Reach the next rank and gain a very nice hat !"
-msgstr ""
+msgstr "다음 순위에 오르고 매우 멋진 모자를 얻으세요!"
 
 #. module: gamification
 #: model_terms:gamification.karma.rank,description_motivational:gamification.rank_student
 msgid "Reach the next rank and gain a very nice mug !"
-msgstr ""
+msgstr "다음 순위에 오르고 아주 멋진 머그잔을 얻으세요!"
 
 #. module: gamification
 #: model_terms:gamification.karma.rank,description_motivational:gamification.rank_doctor
 msgid "Reach the next rank and gain a very nice unicorn !"
-msgstr ""
+msgstr "다음 순위에 오르고 아주 멋진 유니콘을 얻으세요!"
 
 #. module: gamification
 #: model:ir.model.fields.selection,name:gamification.selection__gamification_goal__state__reached
@@ -2011,7 +2011,7 @@ msgstr "필수 배지"
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_karma_rank__karma_min
 msgid "Required Karma"
-msgstr "필수 카르마"
+msgstr "요구되는 명성"
 
 #. module: gamification
 #: model_terms:ir.ui.view,arch_db:gamification.goal_form_view

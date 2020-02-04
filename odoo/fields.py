@@ -161,15 +161,28 @@ class Field(MetaField('DummyField', (object,), {})):
 
         Supported aggregate functions are:
 
-            * ``array_agg`` : values, including nulls, concatenated into an array
-            * ``count`` : number of rows
-            * ``count_distinct`` : number of distinct rows
-            * ``bool_and`` : true if all values are true, otherwise false
-            * ``bool_or`` : true if at least one value is true, otherwise false
-            * ``max`` : maximum value of all values
-            * ``min`` : minimum value of all values
-            * ``avg`` : the average (arithmetic mean) of all values
-            * ``sum`` : sum of all values
+        * ``array_agg`` : values, including nulls, concatenated into an array
+        * ``count`` : number of rows
+        * ``count_distinct`` : number of distinct rows
+        * ``bool_and`` : true if all values are true, otherwise false
+        * ``bool_or`` : true if at least one value is true, otherwise false
+        * ``max`` : maximum value of all values
+        * ``min`` : minimum value of all values
+        * ``avg`` : the average (arithmetic mean) of all values
+        * ``sum`` : sum of all values
+
+    :param str group_expand: function used to expand read_group results when grouping on
+        the current field.
+
+        .. code-block:: python
+
+            @api.model
+            def _read_group_selection_field(self, values, domain, order):
+                return ['choice1', 'choice2', ...] # available selection choices.
+
+            @api.model
+            def _read_group_many2one_field(self, records, domain, order):
+                return records + self.search([custom_domain])
 
     .. rubric:: Computed Fields
 
@@ -3278,10 +3291,9 @@ class Many2many(_RelationalMulti):
             for ys1 in new_relation.values():
                 ys1 -= ys
 
-        to_create = []                  # line vals to create
-        to_delete = []                  # line ids to delete
-
         for recs, commands in records_commands_list:
+            to_create = []  # line vals to create
+            to_delete = []  # line ids to delete
             for command in (commands or ()):
                 if not isinstance(command, (list, tuple)) or not command:
                     continue
@@ -3500,9 +3512,9 @@ class Id(Field):
         # the code below is written to make record.id as quick as possible
         ids = record._ids
         size = len(ids)
-        if size is 0:
+        if size == 0:
             return False
-        elif size is 1:
+        elif size == 1:
             return ids[0]
         raise ValueError("Expected singleton: %s" % record)
 
