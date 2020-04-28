@@ -899,7 +899,7 @@ msgstr "직속 부하 직원"
 #. module: hr
 #: model:ir.model,name:hr.model_mail_channel
 msgid "Discussion Channel"
-msgstr "토론 채널"
+msgstr "메일 및 채팅 채널"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department__display_name
@@ -1089,7 +1089,7 @@ msgstr "직원 태그"
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.res_config_settings_view_form
 msgid "Enrich employee profiles with skills and resumes"
-msgstr "보유 기술과 이력서로 직원 프로필 강화"
+msgstr "보유 기술과 경력 사항으로 직원 프로필 강화"
 
 #. module: hr
 #: model:ir.model.fields,help:hr.field_hr_employee__address_home_id
@@ -1824,7 +1824,10 @@ msgid ""
 "Odoo's department structure is used to manage all documents\n"
 "                related to employees by departments: expenses, timesheets,\n"
 "                leaves, recruitments, etc."
-msgstr "Odoo의 부서 구조는 부서별 직원 관련 문서 : 비용, 작업기록표, 휴가, 채용 등을 관리하는 데 사용됩니다."
+msgstr ""
+"Odoo의 부서 구조는 부서별로 직원과 관련된 모든 서류, \n"
+"                 즉 경비, 시간표, 휴가, 채용 등을 관리하는 데 \n"
+"                 사용됩니다."
 
 #. module: hr
 #: model:res.groups,name:hr.group_hr_user
