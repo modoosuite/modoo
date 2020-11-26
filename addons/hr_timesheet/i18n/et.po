@@ -7,11 +7,11 @@
 # Martin Trigaux, 2020
 # Arma Gedonsky <armagedonsky@hot.ee>, 2020
 # Egon Raamat <egon@avalah.ee>, 2020
-# Eneli Õigus <enelioigus@gmail.com>, 2020
 # Marek Pontus, 2020
 # Ants Peetsalu <ants@avalah.ee>, 2020
 # Martin Aavastik <martin@avalah.ee>, 2020
 # Helen Sulaoja <helen@avalah.ee>, 2020
+# Eneli Õigus <enelioigus@gmail.com>, 2020
 # Algo Kärp <algokarp@gmail.com>, 2020
 # 
 msgid ""
@@ -68,7 +68,7 @@ msgstr "<span>Kuupäev</span>"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.report_timesheet
 msgid "<span>Description</span>"
-msgstr ""
+msgstr "<span>Kirjeldus</span>"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.report_timesheet
@@ -98,7 +98,7 @@ msgstr "Tegevused"
 #. module: hr_timesheet
 #: model:res.groups,name:hr_timesheet.group_timesheet_manager
 msgid "Administrator"
-msgstr ""
+msgstr "Administraator"
 
 #. module: hr_timesheet
 #: code:addons/hr_timesheet/controllers/portal.py:0
@@ -175,7 +175,7 @@ msgstr "Arvutatud kasutades ülesandel tehtud töö summat."
 #. module: hr_timesheet
 #: model:ir.model,name:hr_timesheet.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Seadistused"
 
 #. module: hr_timesheet
 #: model:ir.ui.menu,name:hr_timesheet.hr_timesheet_menu_configuration
@@ -538,7 +538,7 @@ msgstr "Aja kodeerimine"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
 msgid "Time Off"
-msgstr ""
+msgstr "Puudumised"
 
 #. module: hr_timesheet
 #: model:ir.ui.menu,name:hr_timesheet.menu_hr_time_tracking

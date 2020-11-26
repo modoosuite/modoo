@@ -33,7 +33,7 @@ class StockMove(models.Model):
         self.ensure_one()
         price_unit = self.price_unit
         # If the move is a return, use the original move's price unit.
-        if self.origin_returned_move_id and self.origin_returned_move_id.stock_valuation_layer_ids:
+        if self.origin_returned_move_id and self.origin_returned_move_id.sudo().stock_valuation_layer_ids:
             price_unit = self.origin_returned_move_id.stock_valuation_layer_ids[-1].unit_cost
         return not self.company_id.currency_id.is_zero(price_unit) and price_unit or self.product_id.standard_price
 
@@ -237,6 +237,8 @@ class StockMove(models.Model):
         # Init a dict that will group the moves by valuation type, according to `move._is_valued_type`.
         valued_moves = {valued_type: self.env['stock.move'] for valued_type in self._get_valued_types()}
         for move in self:
+            if float_is_zero(move.quantity_done, precision_rounding=move.product_uom.rounding):
+                continue
             for valued_type in self._get_valued_types():
                 if getattr(move, '_is_%s' % valued_type)():
                     valued_moves[valued_type] |= move

@@ -791,6 +791,9 @@ class Lead(models.Model):
         if len(self.ids) <= 1:
             raise UserError(_('Please select more than one element (lead or opportunity) from the list view.'))
 
+        if len(self.ids) > 5 and not self.env.is_superuser():
+            raise UserError(_("To prevent data loss, Leads and Opportunities can only be merged by groups of 5."))
+
         opportunities = self._sort_by_confidence_level(reverse=True)
 
         # get SORTED recordset of head and tail, and complete list
@@ -853,15 +856,15 @@ class Lead(models.Model):
             partner_match_domain.append(('email_from', '=ilike', email))
         if partner_id:
             partner_match_domain.append(('partner_id', '=', partner_id))
-        partner_match_domain = ['|'] * (len(partner_match_domain) - 1) + partner_match_domain
         if not partner_match_domain:
             return self.env['crm.lead']
-        domain = partner_match_domain
+
+        partner_match_domain = ['|'] * (len(partner_match_domain) - 1) + partner_match_domain
         if not include_lost:
-            domain += ['&', ('active', '=', True), ('probability', '<', 100)]
+            partner_match_domain += ['&', ('active', '=', True), ('probability', '<', 100)]
         else:
-            domain += ['|', '&', ('type', '=', 'lead'), ('active', '=', True), ('type', '=', 'opportunity')]
-        return self.search(domain)
+            partner_match_domain += ['|', '&', ('type', '=', 'lead'), ('active', '=', True), ('type', '=', 'opportunity')]
+        return self.search(partner_match_domain)
 
     def _convert_opportunity_data(self, customer, team_id=False):
         """ Extract the data from a lead to create the opportunity
@@ -909,7 +912,7 @@ class Lead(models.Model):
             :returns res.partner record
         """
         email_split = tools.email_split(self.email_from)
-        return {
+        res = {
             'name': name,
             'user_id': self.env.context.get('default_user_id') or self.user_id.id,
             'comment': self.description,
@@ -930,6 +933,9 @@ class Lead(models.Model):
             'is_company': is_company,
             'type': 'contact'
         }
+        if self.lang_id:
+            res['lang'] = self.lang_id.code
+        return res
 
     def _create_lead_partner(self):
         """ Create a partner from lead data
@@ -1255,6 +1261,11 @@ class Lead(models.Model):
             through message_process.
             This override updates the document according to the email.
         """
+
+        # remove external users
+        if self.env.user.has_group('base.group_portal'):
+            self = self.with_context(default_user_id=False)
+
         # remove default author when going through the mail gateway. Indeed we
         # do not want to explicitly set user_id to False; however we do not
         # want the gateway user to be responsible if no other responsible is

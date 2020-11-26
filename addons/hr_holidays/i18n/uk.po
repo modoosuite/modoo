@@ -124,13 +124,13 @@ msgstr "%s на %s: %.2f днів"
 #: code:addons/hr_holidays/models/hr_leave.py:0
 #, python-format
 msgid "%s on Time Off : %.2f day(s)"
-msgstr ""
+msgstr "%s на відпустці : %.2f дні"
 
 #. module: hr_holidays
 #: code:addons/hr_holidays/models/hr_leave.py:0
 #, python-format
 msgid "%s on Time Off : %.2f hour(s)"
-msgstr ""
+msgstr "%s на відпустці : %.2f годин"
 
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.report_holidayssummary
@@ -539,6 +539,31 @@ msgstr ""
 "<span class=\"oe_inline\" attrs=\"{'invisible': ['|', ('request_unit_half', '=', True), ('request_unit_hours', '=', True)]}\">\n"
 "                                    До\n"
 "                                </span>"
+
+#. module: hr_holidays
+#: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_view_form
+msgid ""
+"<span attrs=\"{'invisible': [('holiday_type', '!=', 'employee')]}\">\n"
+"                        The employee has a different timezone than yours! Here dates and times are displayed in the employee's timezone\n"
+"                    </span>\n"
+"                    <span attrs=\"{'invisible': [('holiday_type', '!=', 'department')]}\">\n"
+"                        The department's company has a different timezone than yours! Here dates and times are displayed in the company's timezone\n"
+"                    </span>\n"
+"                    <span attrs=\"{'invisible': [('holiday_type', '!=', 'company')]}\">\n"
+"                        The company has a different timezone than yours! Here dates and times are displayed in the company's timezone\n"
+"                    </span>\n"
+"                    ("
+msgstr ""
+"<span attrs=\"{'invisible': [('holiday_type', '!=', 'employee')]}\">\n"
+"                        У вашого співробітника відрізняється часовий пояс від вашого! Дата та час відображається у часовому поясі співробітника\n"
+"                    </span>\n"
+"                    <span attrs=\"{'invisible': [('holiday_type', '!=', 'department')]}\">\n"
+"                        У відділів компанії відрізняється часовий пояс від вашого! Дата та час відображається у часовому поясі компанії\n"
+"                    </span>\n"
+"                    <span attrs=\"{'invisible': [('holiday_type', '!=', 'company')]}\">\n"
+"                        У компанії відрізняється часовий пояс від вашого! Дата та час відображаються у часовому поясі компанії\n"
+"                    </span>\n"
+"                    ("
 
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_view_kanban
@@ -1345,7 +1370,7 @@ msgstr "Кожен"
 #. module: hr_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays.hr_leave_allocation_view_form
 msgid "Extra days"
-msgstr ""
+msgstr "Додаткові дні"
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave_allocation__duration_display
@@ -1549,6 +1574,8 @@ msgid ""
 "If Accrual Allocation: Number of days allocated in addition to the ones you "
 "will get via the accrual' system."
 msgstr ""
+"Якщо розподіл нарахувань: кількість днів, відведених на додаток до тих, які "
+"ви отримаєте через систему нарахування'."
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave_allocation__number_of_hours_display
@@ -1556,6 +1583,8 @@ msgid ""
 "If Accrual Allocation: Number of hours allocated in addition to the ones you"
 " will get via the accrual' system."
 msgstr ""
+"Якщо розподіл нарахувань: кількість годин, відведених на додаток до тих, які"
+" ви отримаєте через систему нарахування'."
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_leave__message_needaction
@@ -2918,14 +2947,14 @@ msgstr "Користувач"
 #: code:addons/hr_holidays/static/src/xml/discuss.xml:0
 #, python-format
 msgid "User is online"
-msgstr ""
+msgstr "Користувач онлайн"
 
 #. module: hr_holidays
 #. openerp-web
 #: code:addons/hr_holidays/static/src/xml/discuss.xml:0
 #, python-format
 msgid "User is out of office"
-msgstr ""
+msgstr "Користувач не на робочому місці"
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_employee__leave_manager_id

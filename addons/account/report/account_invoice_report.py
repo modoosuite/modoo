@@ -104,7 +104,7 @@ class AccountInvoiceReport(models.Model):
                 -line.balance * (line.price_total / NULLIF(line.price_subtotal, 0.0))    AS amount_total,
                 uom_template.id                                             AS product_uom_id,
                 template.categ_id                                           AS product_categ_id,
-                line.quantity / NULLIF(COALESCE(uom_line.factor, 1) / COALESCE(uom_template.factor, 1), 0.0)
+                line.quantity / NULLIF(COALESCE(uom_line.factor, 1) / COALESCE(uom_template.factor, 1), 0.0) * (CASE WHEN move.type IN ('in_invoice','out_refund','in_receipt') THEN -1 ELSE 1 END)
                                                                             AS quantity,
                 -line.balance                                               AS price_subtotal,
                 -line.balance / NULLIF(COALESCE(uom_line.factor, 1) / COALESCE(uom_template.factor, 1), 0.0)
@@ -220,7 +220,7 @@ class AccountInvoiceReport(models.Model):
             # Since the size of result_ref should be resonable, it should be fine to loop inside a
             # loop.
             for res_ref in result_ref:
-                if set(res['ids']) <= set(res_ref['ids']):
+                if res.get('ids') and res_ref.get('ids') and set(res['ids']) <= set(res_ref['ids']):
                     for field in {'amount_total', 'price_subtotal', 'residual'} & set(res_ref):
                         res_ref[field] += res[field]
                     for field in {'price_average'} & set(res_ref):

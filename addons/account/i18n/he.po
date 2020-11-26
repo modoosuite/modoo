@@ -10,13 +10,14 @@
 # Zvika Rap <zvikara@gmail.com>, 2019
 # ExcaliberX <excaliberx@gmail.com>, 2019
 # שהאב חוסיין <shhab89@gmail.com>, 2019
-# hed shefetr <hed@laylinetech.com>, 2019
 # דודי מלכה <Dudimalka6@gmail.com>, 2019
 # Adi Sharashov <Adi@laylinetech.com>, 2019
 # Amit Spilman <amit@laylinetech.com>, 2020
 # Martin Trigaux, 2020
-# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2020
 # Yihya Hugirat <hugirat@gmail.com>, 2020
+# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2020
+# hed shefetr <hed@laylinetech.com>, 2020
+# yotam katzuni <yotam@laylinetech.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -24,7 +25,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 09:21+0000\n"
 "PO-Revision-Date: 2019-08-26 09:06+0000\n"
-"Last-Translator: Yihya Hugirat <hugirat@gmail.com>, 2020\n"
+"Last-Translator: yotam katzuni <yotam@laylinetech.com>, 2020\n"
 "Language-Team: Hebrew (https://www.transifex.com/odoo/teams/41243/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1548,7 +1549,7 @@ msgstr "הוסף הערה פנימית..."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_invoice_send_wizard_form
 msgid "Add contacts to notify..."
-msgstr "הוסף אנשי קשר שיש להודיע להם..."
+msgstr "הוסף אנשי קשר שברצונך ליידע..."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__partner_ids
@@ -2694,7 +2695,7 @@ msgstr "מזומן"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__tax_exigibility
 msgid "Cash Basis"
-msgstr ""
+msgstr "בסיס מזומן"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__tax_cash_basis_journal_id
@@ -3162,7 +3163,7 @@ msgstr "מטבע החברה"
 #. module: account
 #: model:ir.model,name:account.model_base_document_layout
 msgid "Company Document Layout"
-msgstr ""
+msgstr "עיצוב מסמך של החברה"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__has_chart_of_accounts
@@ -6643,7 +6644,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__layout
 msgid "Layout"
-msgstr "פריסה"
+msgstr "עיצוב"
 
 #. module: account
 #: model:ir.ui.menu,name:account.menu_finance_entries_accounting_ledgers
@@ -6760,7 +6761,7 @@ msgstr "נעל פקודות יומן רשומות עם סולמית"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__is_log
 msgid "Log an Internal Note"
-msgstr "רשום הערה פנימית"
+msgstr "כתוב הערה פנימית"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_invoice_layout_step
@@ -7160,7 +7161,7 @@ msgstr "מועד אחרון לפעילות הבאה"
 #: model:ir.model.fields,field_description:account.field_account_move__activity_summary
 #: model:ir.model.fields,field_description:account.field_account_payment__activity_summary
 msgid "Next Activity Summary"
-msgstr "תקציר הפעילות הבאה "
+msgstr "תיאור הפעילות הבאה "
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__activity_type_id
@@ -7256,7 +7257,7 @@ msgstr "התחייבויות בלתי שוטפות"
 #: model:ir.model.fields.selection,name:account.selection__account_tax__type_tax_use__none
 #: model:ir.model.fields.selection,name:account.selection__account_tax_template__type_tax_use__none
 msgid "None"
-msgstr "אף אחד"
+msgstr "ללא"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__res_partner__trust__normal
@@ -8235,7 +8236,7 @@ msgstr "הגדר לוח חשבונות או צור יומן שונה לפני ש
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "Please use the following communication for your payment :"
-msgstr ""
+msgstr "אנא השתמש במזהה הבא לתשלום שלך:"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_tax_repartition_line_template__plus_report_line_ids
@@ -12597,6 +12598,12 @@ msgid ""
 "You should configure the 'Loss Exchange Rate Account' in the accounting "
 "settings, to manage automatically the booking of accounting entries related "
 "to differences between exchange rates."
+msgstr ""
+
+#. module: account
+#: code:addons/account/models/account_cash_rounding.py:33
+#, python-format
+msgid "Please set a positive rounding value."
 msgstr ""
 
 #. module: account

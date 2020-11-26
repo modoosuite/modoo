@@ -7,16 +7,16 @@
 # Joao Felix <jrmfelix@gmail.com>, 2019
 # José Gomes <jg@opencloud.pro>, 2019
 # Martin Trigaux, 2019
-# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2019
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2019
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2019
 # Tiago Baptista, 2019
 # Ricardo Correia <rcorreiavv@gmail.com>, 2019
 # Vitor Fernandes <vmlf01@gmail.com>, 2019
 # Pedro Castro Silva <pedrocs@exo.pt>, 2019
 # Diogo Fonseca <dsf@thinkopensolutions.pt>, 2019
-# Marcelo Pereira <marcelo.pereira@arxi.pt>, 2019
-# Manuela Silva <manuelarodsilva@gmail.com>, 2019
+# Manuela Silva <manuelarodsilva@gmail.com>, 2020
 # Nuno Silva <nuno.silva@arxi.pt>, 2020
+# Marcelo Pereira <marcelo.pereira@arxi.pt>, 2020
 # Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2020
 # 
 msgid ""
@@ -282,6 +282,13 @@ msgstr "<p>Crie aqui um canal.</p>"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/tours/mail.js:26
+#, python-format
+msgid "<p>Create a public or private channel.</p>"
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/js/models/threads/create_mode_document_thread.js:0
 #, python-format
 msgid "<p>Creating a new record...</p>"
@@ -475,6 +482,9 @@ msgid ""
 "Actions may trigger specific behavior like opening calendar view or "
 "automatically mark as done when a document is uploaded"
 msgstr ""
+"Uma ação pode despoletar comportamentos específicos, como abrir uma vista do"
+" calendário ou marcar automaticamente um documento como concluído depois do "
+"carregamento."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype__default
@@ -533,7 +543,7 @@ msgstr "Atividade"
 #: model:ir.model.fields,field_description:mail.field_res_partner__activity_exception_decoration
 #: model:ir.model.fields,field_description:mail.field_res_users__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Marcador de Exceções de Atividade"
 
 #. module: mail
 #: model:ir.model,name:mail.model_mail_activity_mixin
@@ -689,7 +699,7 @@ msgstr "Avançado"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
 msgid "Advanced Settings"
-msgstr "Configurações Avançadas"
+msgstr "Definições Avançadas"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_mixin__activity_exception_decoration__warning
@@ -1046,7 +1056,7 @@ msgstr "Devolver"
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_status__bounce
 #, python-format
 msgid "Bounced"
-msgstr ""
+msgstr "Emails Rejeitados"
 
 #. module: mail
 #: code:addons/mail/models/mail_cc_mixin.py:0
@@ -1190,7 +1200,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/discuss.xml:0
 #, python-format
 msgid "Channel settings"
-msgstr ""
+msgstr "Definições do canal"
 
 #. module: mail
 #. openerp-web
@@ -1908,7 +1918,7 @@ msgstr "Data de Vencimento em"
 #: code:addons/mail/static/src/js/activity.js:0
 #, python-format
 msgid "Due in %d days"
-msgstr ""
+msgstr "Vencido em %d dias"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_date_deadline_range_type
@@ -2152,6 +2162,8 @@ msgid ""
 "Error without exception. Probably due do concurrent access update of "
 "notification records. Please see with an administrator."
 msgstr ""
+"Erro sem exception. Provavelmente dever-se-á a atualizações concorrentes dos"
+" registos de notificação. Contacte um administrador."
 
 #. module: mail
 #: code:addons/mail/models/mail_mail.py:0
@@ -4685,7 +4697,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/thread_window.xml:0
 #, python-format
 msgid "Read more"
-msgstr ""
+msgstr "Ler mais"
 
 #. module: mail
 #. openerp-web
@@ -4897,8 +4909,8 @@ msgid ""
 "Reply email address. Setting the reply_to bypasses the automatic thread "
 "creation."
 msgstr ""
-"Endereço de e-mail de resposta. Definir o \"responder a\" ignora a criação "
-"de linha automática."
+"Endereço de ''e-mail'' de resposta. Definir o \"responder a\" ignora a "
+"criação de linha automática."
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview__reply_to
@@ -5021,7 +5033,7 @@ msgstr "Planear"
 #: code:addons/mail/static/src/js/activity.js:0
 #, python-format
 msgid "Schedule Activity"
-msgstr ""
+msgstr "Agendar Atividade"
 
 #. module: mail
 #. openerp-web
@@ -5493,7 +5505,7 @@ msgstr "A"
 #: code:addons/mail/models/ir_actions.py:0
 #, python-format
 msgid "The 'Due Date In' value can't be negative."
-msgstr ""
+msgstr "O valor do 'Vencimento em' não pode ser negativo."
 
 #. module: mail
 #: model:ir.model.constraint,message:mail.constraint_mail_moderation_channel_email_uniq
@@ -5918,21 +5930,21 @@ msgstr ""
 #: model:mail.activity.type,name:mail.mail_activity_data_upload_document
 #, python-format
 msgid "Upload Document"
-msgstr ""
+msgstr "Carregar Documento"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/web_kanban_activity.xml:0
 #, python-format
 msgid "Upload file"
-msgstr ""
+msgstr "Carregar ficheiro"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/thread.xml:0
 #, python-format
 msgid "Uploaded"
-msgstr ""
+msgstr "Carregado"
 
 #. module: mail
 #. openerp-web
@@ -6082,7 +6094,7 @@ msgstr ""
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "View %s"
-msgstr ""
+msgstr "Ver %s"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_act_window_view__view_mode
@@ -6291,6 +6303,14 @@ msgid ""
 msgstr ""
 
 #. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
+
+#. module: mail
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "You have been assigned to %s"
@@ -6362,14 +6382,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_paynow
 msgid "Your"
-msgstr ""
+msgstr "O Seu Registo de"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/js/thread_field.js:0
 #, python-format
 msgid "Your message has not been sent."
-msgstr ""
+msgstr "A sua mensagem não foi enviada."
 
 #. module: mail
 #. openerp-web
@@ -6383,7 +6403,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/discuss.xml:0
 #, python-format
 msgid "Your message was rejected by moderator."
-msgstr ""
+msgstr "A sua mensagem foi rejeitada pelo moderador."
 
 #. module: mail
 #: code:addons/mail/controllers/home.py:0

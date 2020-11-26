@@ -96,7 +96,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/payment/static/src/js/payment_form.js:0
 #, python-format
-msgid "<p>This card is currently linked to the following records:<p/>"
+msgid "This card is currently linked to the following records:"
 msgstr ""
 
 #. module: payment
@@ -1122,6 +1122,11 @@ msgid "Never"
 msgstr ""
 
 #. module: payment
+#: model_terms:ir.ui.view,arch_db:payment.payment_link_wizard_view_form
+msgid "This partner has no email, which may cause issues with some payment acquirers. Setting an email for this partner is advised."
+msgstr ""
+
+#. module: payment
 #: code:addons/payment/wizards/payment_acquirer_onboarding_wizard.py:0
 #, python-format
 msgid ""
@@ -1892,7 +1897,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/payment/static/src/js/payment_form.js:0
 #, python-format
-msgid "We are not able to add your payment method at the moment.</p>"
+msgid "We are not able to add your payment method at the moment."
 msgstr ""
 
 #. module: payment

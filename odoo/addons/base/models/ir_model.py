@@ -308,9 +308,13 @@ class IrModel(models.Model):
     def _add_manual_models(self):
         """ Add extra models to the registry. """
         # clean up registry first
-        custom_models = [name for name, model_class in self.pool.items() if model_class._custom]
-        for name in custom_models:
-            del self.pool.models[name]
+        for name, Model in list(self.pool.items()):
+            if Model._custom:
+                del self.pool.models[name]
+                # remove the model's name from its parents' _inherit_children
+                for Parent in Model.__bases__:
+                    if hasattr(Parent, 'pool'):
+                        Parent._inherit_children.discard(name)
         # add manual models
         cr = self.env.cr
         cr.execute('SELECT * FROM ir_model WHERE state=%s', ['manual'])
@@ -1783,8 +1787,6 @@ class IrModelData(models.Model):
         if not data_list:
             return
 
-        # rows to insert
-        rowf = "(%s, %s, %s, %s, %s, now() at time zone 'UTC', now() at time zone 'UTC')"
         rows = tools.OrderedSet()
         for data in data_list:
             prefix, suffix = data['xml_id'].split('.', 1)
@@ -1802,15 +1804,7 @@ class IrModelData(models.Model):
 
         for sub_rows in self.env.cr.split_for_in_conditions(rows):
             # insert rows or update them
-            query = """
-                INSERT INTO ir_model_data (module, name, model, res_id, noupdate, date_init, date_update)
-                VALUES {rows}
-                ON CONFLICT (module, name)
-                DO UPDATE SET date_update=(now() at time zone 'UTC') {where}
-            """.format(
-                rows=", ".join([rowf] * len(sub_rows)),
-                where="WHERE NOT ir_model_data.noupdate" if update else "",
-            )
+            query = self._build_update_xmlids_query(sub_rows, update)
             try:
                 self.env.cr.execute(query, [arg for row in sub_rows for arg in row])
             except Exception:
@@ -1819,6 +1813,20 @@ class IrModelData(models.Model):
 
         # update loaded_xmlids
         self.pool.loaded_xmlids.update("%s.%s" % row[:2] for row in rows)
+
+    # NOTE: this method is overriden in web_studio; if you need to make another
+    #  override, make sure it is compatible with the one that is there.
+    def _build_update_xmlids_query(self, sub_rows, update):
+        rowf = "(%s, %s, %s, %s, %s, now() at time zone 'UTC', now() at time zone 'UTC')"
+        return """
+            INSERT INTO ir_model_data (module, name, model, res_id, noupdate, date_init, date_update)
+            VALUES {rows}
+            ON CONFLICT (module, name)
+            DO UPDATE SET date_update=(now() at time zone 'UTC') {where}
+        """.format(
+            rows=", ".join([rowf] * len(sub_rows)),
+            where="WHERE NOT ir_model_data.noupdate" if update else "",
+        )
 
     @api.model
     def _load_xmlid(self, xml_id):
@@ -1870,6 +1878,16 @@ class IrModelData(models.Model):
             else:
                 records_items.append((data.model, data.res_id))
 
+        # avoid prefetching fields that are going to be deleted: during uninstall, it is
+        # possible to perform a recompute (via flush_env) after the database columns have been
+        # deleted but before the new registry has been created, meaning the recompute will
+        # be executed on a stale registry, and if some of the data for executing the compute
+        # methods is not in cache it will be fetched, and fields that exist in the registry but not
+        # in the database will be prefetched, this will of course fail and prevent the uninstall.
+        for ir_field in self.env['ir.model.fields'].browse(field_ids):
+            field = self.pool[ir_field.model]._fields[ir_field.name]
+            field.prefetch = False
+
         # to collect external ids of records that cannot be deleted
         undeletable_ids = []
 
@@ -1886,18 +1904,23 @@ class IrModelData(models.Model):
 
             # special case for ir.model.fields
             if records._name == 'ir.model.fields':
+                missing = records - records.exists()
+                if missing:
+                    # delete orphan external ids right now;
+                    # an orphan ir.model.data can happen if the ir.model.field is deleted via
+                    # an ONDELETE CASCADE, in which case we must verify that the records we're
+                    # processing exist in the database otherwise a MissingError will be raised
+                    orphans = ref_data.filtered(lambda r: r.res_id in missing._ids)
+                    _logger.info('Deleting orphan ir_model_data %s', orphans)
+                    orphans.unlink()
+                    # /!\ this must go before any field accesses on `records`
+                    records -= missing
                 # do not remove LOG_ACCESS_COLUMNS unless _log_access is False
                 # on the model
                 records -= records.filtered(lambda f: f.name == 'id' or (
                     f.name in models.LOG_ACCESS_COLUMNS and
                     f.model in self.env and self.env[f.model]._log_access
                 ))
-                # delete orphan external ids right now
-                missing_ids = set(records.ids) - set(records.exists().ids)
-                orphans = ref_data.filtered(lambda r: r.res_id in missing_ids)
-                if orphans:
-                    _logger.info('Deleting orphan ir_model_data %s', orphans)
-                    orphans.unlink()
 
             # now delete the records
             _logger.info('Deleting %s', records)
@@ -1988,6 +2011,10 @@ class IrModelData(models.Model):
                         bad_imd_ids.append(id)
         if bad_imd_ids:
             self.browse(bad_imd_ids).unlink()
+
+        # Once all views are created create specific ones
+        self.env['ir.ui.view']._create_all_specific_views(modules)
+
         loaded_xmlids.clear()
 
     @api.model

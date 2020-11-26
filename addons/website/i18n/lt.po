@@ -47,6 +47,18 @@ msgid "\" alert with a"
 msgstr "\" įspėjimas su"
 
 #. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" can not be empty."
+msgstr ""
+
+#. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" must start with a leading slash."
+msgstr ""
+
+#. module: website
 #: model:ir.model.fields,field_description:website.field_website_visitor__page_count
 msgid "# Visited Pages"
 msgstr ""
@@ -5779,6 +5791,12 @@ msgid "White"
 msgstr "Baltas"
 
 #. module: website
+#: model:ir.model.fields,help:website.field_res_config_settings__website_domain
+#: model:ir.model.fields,help:website.field_website__domain
+msgid "Will be prefixed by http in canonical URLs if no scheme is specified"
+msgstr ""
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_quotes_carousel
 #: model_terms:ir.ui.view,arch_db:website.s_tabs
 msgid ""
@@ -5880,6 +5898,12 @@ msgid ""
 msgstr ""
 "Paslėpėte šį puslapį iš paieškos rezultatų. Jis nebus indeksuotas paieškos "
 "variklių."
+
+#. module: website
+#: code:addons/website/models/website.py:162
+#, python-format
+msgid "You must keep at least one website."
+msgstr ""
 
 #. module: website
 #. openerp-web

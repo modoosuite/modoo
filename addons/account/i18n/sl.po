@@ -11,10 +11,10 @@
 # laznikd <laznik@mentis.si>, 2020
 # matjaz k <matjaz@mentis.si>, 2020
 # Tadej Lupšina <tadej@hbs.si>, 2020
-# Jasmina Macur <jasmina@hbs.si>, 2020
-# Grega Vavtar <grega@hbs.si>, 2020
-# Matjaz Mozetic <m.mozetic@matmoz.si>, 2020
 # Martin Trigaux, 2020
+# Matjaz Mozetic <m.mozetic@matmoz.si>, 2020
+# Grega Vavtar <grega@hbs.si>, 2020
+# Jasmina Macur <jasmina@hbs.si>, 2020
 # 
 msgid ""
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 09:21+0000\n"
 "PO-Revision-Date: 2019-08-26 09:06+0000\n"
-"Last-Translator: Martin Trigaux, 2020\n"
+"Last-Translator: Jasmina Macur <jasmina@hbs.si>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_chart_template__code_digits
 msgid "# of Digits"
-msgstr "# mest (števila)"
+msgstr "št. mest (števila)"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_cashbox_line__number
@@ -183,6 +183,22 @@ msgid ""
 "    </p>\n"
 "</div>\n"
 msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Pozdravljeni ${object.partner_id.name}<br/><br/>\n"
+"        Hvala za vaše plačilo.\n"
+"        Tu je vaše potrdilo o plačilu <strong>${(object.name or '').replace('/','-')}</strong> znesek\n"
+"        za <strong>${format_amount(object.amount, object.currency_id)}</strong> od ${object.company_id.name}.\n"
+"        <br/><br/>\n"
+"        Če imate kakršnakoli vprašanja, nas kontaktirajte.\n"
+"        <br/><br/>\n"
+"        Lep pozdrav,<br/>\n"
+"        % if user and user.signature:\n"
+"        ${user.signature | safe}\n"
+"        % endif\n"
+"    </p>\n"
+"</div>\n"
 
 #. module: account
 #: model:mail.template,body_html:account.email_template_edi_invoice
@@ -218,6 +234,36 @@ msgid ""
 "</div>\n"
 "            "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"        Pozdravljeni\n"
+"        % if object.partner_id.parent_id:\n"
+"            ${object.partner_id.name} (${object.partner_id.parent_id.name}),\n"
+"        % else:\n"
+"            ${object.partner_id.name},\n"
+"        % endif\n"
+"        <br/><br/>\n"
+"        Tukaj je vaš\n"
+"        % if object.name:\n"
+"            račun <strong>${object.name}</strong>\n"
+"        % else:\n"
+"            račun\n"
+"        %endif\n"
+"        % if object.invoice_origin:\n"
+"            (z referenco: ${object.invoice_origin})\n"
+"        % endif\n"
+"        znesek <strong>${format_amount(object.amount_total, object.currency_id)}</strong>\n"
+"        od ${object.company_id.name}.\n"
+"        % if object.invoice_payment_state == 'paid':\n"
+"            Račun je že plačan.\n"
+"        % else:\n"
+"            Plačilo opravite v najkrajšem možnem času.\n"
+"        % endif\n"
+"        <br/><br/>\n"
+"        Če imate kakršnakoli vprašanja, nas kontaktirajte.\n"
+"    </p>\n"
+"</div>\n"
+"            "
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_my_home_menu_invoice
@@ -516,7 +562,7 @@ msgstr "<span>Opis</span>"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<span>Disc.%</span>"
-msgstr ""
+msgstr "<span>Pop.%</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_payment_receipt_document
@@ -894,7 +940,7 @@ msgstr ""
 #. module: account
 #: model:ir.model,name:account.model_account_chart_template
 msgid "Account Chart Template"
-msgstr ""
+msgstr "Predloga kontnega načrta"
 
 #. module: account
 #: model:ir.model,name:account.model_account_common_report
@@ -4165,7 +4211,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "Disc.%"
-msgstr ""
+msgstr "Pop.%"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__discount
@@ -4327,7 +4373,7 @@ msgstr "Osnutki računov"
 #: code:addons/account/models/account_payment.py:0
 #, python-format
 msgid "Draft Payment"
-msgstr ""
+msgstr "Osnutek plačila"
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -4844,7 +4890,7 @@ msgstr "Fiksni znesek"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_fixed_assets
 msgid "Fixed Assets"
-msgstr "Fixed Assets"
+msgstr "Nepremičnine"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_reconcile_model__amount
@@ -5450,7 +5496,7 @@ msgstr ""
 #. module: account
 #: model:account.payment.term,name:account.account_payment_term_immediate
 msgid "Immediate Payment"
-msgstr "Takojšne plačilo"
+msgstr "Takojšnje plačilo"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__module_account_bank_statement_import_qif
@@ -7183,12 +7229,12 @@ msgstr "Število mest za konto"
 #. module: account
 #: model:account.account.type,name:account.data_account_type_non_current_assets
 msgid "Non-current Assets"
-msgstr "Ne-kratkoročna sredstva"
+msgstr "Dolgoročna sredstva"
 
 #. module: account
 #: model:account.account.type,name:account.data_account_type_non_current_liabilities
 msgid "Non-current Liabilities"
-msgstr "Ne-kratkoročne obveznosti"
+msgstr "Dolgoročne obveznosti"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_tax__type_tax_use__none
@@ -7220,6 +7266,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_invoice_report__invoice_payment_state__not_paid
 #: model:ir.model.fields.selection,name:account.selection__account_move__invoice_payment_state__not_paid
+#: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
 msgid "Not Paid"
 msgstr ""
 
@@ -7337,7 +7384,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account.field_account_move__message_has_error_counter
 #: model:ir.model.fields,field_description:account.field_account_payment__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Število napak"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement__message_needaction_counter
@@ -12514,6 +12561,12 @@ msgid ""
 msgstr ""
 "Za samodejno upravljanje knjigovodskih vnosov glede razlik v tečajih, morate"
 " najprej nastaviti konto izgub iz menjalnega tečaja."
+
+#. module: account
+#: code:addons/account/models/account_cash_rounding.py:33
+#, python-format
+msgid "Please set a positive rounding value."
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form

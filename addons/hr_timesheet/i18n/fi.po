@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Martin Trigaux, 2019
-# Kari Lindgren <kari.lindgren@emsystems.fi>, 2019
 # Miku Laitinen <miku.laitinen@gmail.com>, 2019
 # Mikko Salmela <salmemik@gmail.com>, 2019
 # Svante Suominen <svante.suominen@web-veistamo.fi>, 2019
@@ -15,6 +14,7 @@
 # Simo Suurla <simo@suurla.fi>, 2019
 # Jussi Heikkilä <jussi.heikkila@panimo.com>, 2019
 # Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2019
+# Kari Lindgren <kari.lindgren@emsystems.fi>, 2020
 # Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2020
 # 
 msgid ""
@@ -39,7 +39,7 @@ msgstr ""
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.view_kanban_account_analytic_line
 msgid "<i class=\"fa fa-calendar\" role=\"img\" aria-label=\"Date\" title=\"Date\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-calendar\" role=\"img\" aria-label=\"Date\" title=\"Date\"/>"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
@@ -83,7 +83,7 @@ msgstr "<span>Vastuuhenkilö</span>"
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.report_timesheet
 msgid "<span>Time</span>"
-msgstr ""
+msgstr "Aika"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.view_kanban_account_analytic_line
@@ -305,19 +305,19 @@ msgstr "Alunperin suunnitellut tunnit"
 #: code:addons/hr_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Last month"
-msgstr ""
+msgstr "Viime kuukausi"
 
 #. module: hr_timesheet
 #: code:addons/hr_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Last week"
-msgstr ""
+msgstr "Viime viikko"
 
 #. module: hr_timesheet
 #: code:addons/hr_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Last year"
-msgstr ""
+msgstr "Viime vuosi"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.project_invoice_form
@@ -533,7 +533,7 @@ msgstr ""
 #: code:addons/hr_timesheet/controllers/portal.py:0
 #, python-format
 msgid "This year"
-msgstr ""
+msgstr "Tämä vuosi"
 
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
@@ -543,7 +543,7 @@ msgstr ""
 #. module: hr_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_timesheet.res_config_settings_view_form
 msgid "Time Off"
-msgstr ""
+msgstr "Vapaa"
 
 #. module: hr_timesheet
 #: model:ir.ui.menu,name:hr_timesheet.menu_hr_time_tracking

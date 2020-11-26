@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-27 09:21+0000\n"
+"POT-Creation-Date: 2020-10-27 11:49+0000\n"
 "PO-Revision-Date: 2019-08-26 09:12+0000\n"
 "Last-Translator: Jeffery CHEN Fan <jeffery9@gmail.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
@@ -249,7 +249,7 @@ msgid ""
 "<span>There is a difference between the expected and actual closing in cash."
 " Are you sure you want to close the session and post the accounting "
 "entries?</span>"
-msgstr "<span>预期现金和实际结算之间存在差异。 您确定要关闭会话并发布会计分录吗？</span>"
+msgstr "<span>预期现金和实际结算之间存在差异。 您确定要关闭会话并发布会计凭证吗？</span>"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_config_kanban
@@ -267,15 +267,6 @@ msgstr "= 预计现金"
 #, python-format
 msgid "? Clicking \"Confirm\" will validate the payment."
 msgstr "? 点击 \"确认\"  将验证付款."
-
-#. module: point_of_sale
-#: code:addons/point_of_sale/models/pos_config.py:0
-#, python-format
-msgid ""
-"A Chart of Accounts is not yet installed in your current company. Please "
-"install a Chart of Accounts through the Invoicing/Accounting settings before"
-" launching a PoS session."
-msgstr ""
 
 #. module: point_of_sale
 #. openerp-web
@@ -362,7 +353,7 @@ msgstr "科目表模版"
 msgid ""
 "Account used as counterpart of the income account in the accounting entry "
 "representing the pos sales."
-msgstr "帐户用作代表销售额的会计分录中的收入帐户的对应方。"
+msgstr "账户用作代表销售额的会计凭证中的收入账户的对应方。"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -779,7 +770,7 @@ msgstr "现金日记账"
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session__cash_register_id
 msgid "Cash Register"
-msgstr "现金出纳机"
+msgstr "收银机"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session__statement_ids
@@ -1033,7 +1024,7 @@ msgstr "配置"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "Configuration for journal entries of PoS orders"
-msgstr "配置 PoS 订单的日记账分录"
+msgstr "配置 PoS 订单的会计凭证"
 
 #. module: point_of_sale
 #: model_terms:ir.actions.act_window,help:point_of_sale.action_pos_config_kanban
@@ -1940,7 +1931,7 @@ msgstr "如果选中此项，您将可以选择批次/序列号。 您也可以�
 msgid ""
 "If ticked, each payment will generate a separated journal item. Ticking that"
 " option will slow the closing of the PoS."
-msgstr "如果勾选此项，每笔付款将生成一个单独的日记账项目。勾选该选项将减慢PoS的关闭速度。"
+msgstr "如果勾选此项，每笔付款将生成一个单独的会计分录目。勾选该选项将减慢PoS的关闭速度。"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_category__image_128
@@ -2113,24 +2104,24 @@ msgstr "日记账"
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_account_move
 msgid "Journal Entries"
-msgstr "日记账分录"
+msgstr "会计凭证"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session__move_id
 msgid "Journal Entry"
-msgstr "日记账分录"
+msgstr "会计凭证"
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_account_move_line
 msgid "Journal Item"
-msgstr "日记账项"
+msgstr "会计分录"
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/models/pos_session.py:0
 #: model_terms:ir.ui.view,arch_db:point_of_sale.view_pos_session_form
 #, python-format
 msgid "Journal Items"
-msgstr "日记账项"
+msgstr "会计分录"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_digest_digest__kpi_pos_total_value
@@ -2237,7 +2228,7 @@ msgstr "行号"
 #: code:addons/point_of_sale/wizard/pos_open_statement.py:0
 #, python-format
 msgid "List of Cash Registers"
-msgstr "出纳机列表"
+msgstr "收银机列表"
 
 #. module: point_of_sale
 #. openerp-web
@@ -2960,7 +2951,7 @@ msgstr "按会话"
 msgid ""
 "Person who uses the cash register. It can be a reliever, a student or an "
 "interim employee."
-msgstr "使用现金登记的人可以是救援者，学生或者临时工"
+msgstr "使用收银机的人可以是救援者，学生或者临时工"
 
 #. module: point_of_sale
 #. openerp-web
@@ -3056,6 +3047,13 @@ msgstr "请提供业务伙伴。"
 
 #. module: point_of_sale
 #. openerp-web
+#: code:addons/point_of_sale/static/src/js/screens.js:0
+#, python-format
+msgid "Please provide valid email"
+msgstr ""
+
+#. module: point_of_sale
+#. openerp-web
 #: code:addons/point_of_sale/static/src/xml/pos.xml:0
 #, python-format
 msgid "Please select a payment method."
@@ -3067,6 +3065,13 @@ msgstr "请选择付款方式"
 #, python-format
 msgid "Please select the Customer"
 msgstr "请选择客户"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/screens.js:0
+#, python-format
+msgid "Please select the customer"
+msgstr ""
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_report_pos_order__pos_categ_id
@@ -3202,6 +3207,7 @@ msgstr "销售网点订单报告"
 
 #. module: point_of_sale
 #: model:ir.model,name:point_of_sale.model_pos_payment_method
+#: model:ir.model.fields,field_description:point_of_sale.field_account_bank_statement_import_journal_creation__pos_payment_method_ids
 #: model:ir.model.fields,field_description:point_of_sale.field_account_journal__pos_payment_method_ids
 msgid "Point of Sale Payment Methods"
 msgstr "POS付款方式"
@@ -4214,6 +4220,7 @@ msgstr "税金显示"
 
 #. module: point_of_sale
 #. openerp-web
+#: code:addons/point_of_sale/static/src/js/models.js:0
 #: code:addons/point_of_sale/static/src/xml/pos.xml:0
 #: code:addons/point_of_sale/static/src/xml/pos.xml:0
 #, python-format
@@ -4384,6 +4391,13 @@ msgstr "该支付输入与银行支付输入类似，将通过准确到期金额
 msgid ""
 "The payment method is of type cash. A cash statement will be automatically "
 "generated."
+msgstr ""
+
+#. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_payment.py:0
+#, python-format
+msgid ""
+"The payment method selected is not allowed in the config of the POS session."
 msgstr ""
 
 #. module: point_of_sale
@@ -4573,6 +4587,15 @@ msgid ""
 msgstr "此条码已分配给其他联系人。请确保为此联系人分配了唯一的条码。"
 
 #. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/screens.js:0
+#, python-format
+msgid ""
+"This customer does not have a valid email address, define one or do not send"
+" an email."
+msgstr ""
+
+#. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__amount_authorized_diff
 msgid ""
 "This field depicts the maximum difference allowed between the ending balance"
@@ -4653,6 +4676,13 @@ msgid ""
 "This sequence is automatically created by Odoo but you can change it to "
 "customize the reference numbers of your orders."
 msgstr "此序列由 Odoo 自动创建，但您可以进行更改以自定义订单详情的参考号。"
+
+#. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_session.py:0
+#: code:addons/point_of_sale/models/pos_session.py:0
+#, python-format
+msgid "This session is already closed."
+msgstr ""
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
@@ -4797,6 +4827,11 @@ msgstr "总计："
 #, python-format
 msgid "Transaction cancelled"
 msgstr ""
+
+#. module: point_of_sale
+#: model:ir.model,name:point_of_sale.model_stock_picking
+msgid "Transfer"
+msgstr "转账"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_barcode_rule__type
@@ -4962,13 +4997,6 @@ msgstr "用户标签"
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config__uuid
 msgid "Uuid"
 msgstr "UUID"
-
-#. module: point_of_sale
-#. openerp-web
-#: code:addons/point_of_sale/static/src/xml/pos.xml:0
-#, python-format
-msgid "VAT:"
-msgstr "VAT:"
 
 #. module: point_of_sale
 #. openerp-web
@@ -5160,6 +5188,13 @@ msgid ""
 msgstr ""
 
 #. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_config.py:0
+#, python-format
+msgid ""
+"You must configure an intermediary account for the payment methods: %s."
+msgstr ""
+
+#. module: point_of_sale
 #: model_terms:ir.actions.act_window,help:point_of_sale.product_product_action
 msgid ""
 "You must define a product for everything you sell through\n"
@@ -5172,6 +5207,14 @@ msgstr "在销售点界面需要定义一个能代表你所卖的每一样东西
 #, python-format
 msgid "You need to select the customer before you can invoice an order."
 msgstr "如需开票，请先维护订单客户。"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/screens.js:0
+#, python-format
+msgid ""
+"You need to select the customer before you can send the receipt via email."
+msgstr ""
 
 #. module: point_of_sale
 #: code:addons/point_of_sale/models/pos_session.py:0

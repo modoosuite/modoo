@@ -115,7 +115,8 @@ class PosConfig(models.Model):
         'account.journal', string='Sales Journal',
         domain=[('type', '=', 'sale')],
         help="Accounting journal used to post sales entries.",
-        default=_default_sale_journal)
+        default=_default_sale_journal,
+        ondelete='restrict')
     invoice_journal_id = fields.Many2one(
         'account.journal', string='Invoice Journal',
         domain=[('type', '=', 'sale')],
@@ -250,7 +251,8 @@ class PosConfig(models.Model):
         """If there is an open session, store it to current_session_id / current_session_State.
         """
         for pos_config in self:
-            session = pos_config.session_ids.filtered(lambda s: not s.state == 'closed' and not s.rescue)
+            session = pos_config.session_ids.filtered(lambda s: s.user_id.id == self.env.uid and \
+                    not s.state == 'closed' and not s.rescue)
             # sessions ordered by id desc
             pos_config.current_session_id = session and session[0].id or False
             pos_config.current_session_state = session and session[0].state or False
@@ -341,6 +343,20 @@ class PosConfig(models.Model):
         ):
             raise ValidationError(_("All payment methods must be in the same currency as the Sales Journal or the company currency if that is not set."))
 
+    @api.constrains('payment_method_ids')
+    def _check_payment_method_receivable_accounts(self):
+        # This is normally not supposed to happen to have a payment method without a receivable account set,
+        # as this is a required field. However, it happens the receivable account cannot be found during upgrades
+        # and this is a bommer to block the upgrade for that point, given the user can correct this by himself,
+        # without requiring a manual intervention from our upgrade support.
+        # However, this must be ensured this receivable is well set before opening a POS session.
+        invalid_payment_methods = self.payment_method_ids.filtered(lambda method: not method.receivable_account_id)
+        if invalid_payment_methods:
+            method_names = ", ".join(method.name for method in invalid_payment_methods)
+            raise ValidationError(
+                _("You must configure an intermediary account for the payment methods: %s.") % method_names
+            )
+
     @api.constrains('company_id', 'available_pricelist_ids')
     def _check_companies(self):
         if any(self.available_pricelist_ids.mapped(lambda pl: pl.company_id.id not in (False, self.company_id.id))):
@@ -356,6 +372,8 @@ class PosConfig(models.Model):
     @api.onchange('iface_print_via_proxy')
     def _onchange_iface_print_via_proxy(self):
         self.iface_print_auto = self.iface_print_via_proxy
+        if not self.iface_print_via_proxy:
+            self.iface_cashdrawer = False
 
     @api.onchange('module_account')
     def _onchange_module_account(self):
@@ -533,13 +551,11 @@ class PosConfig(models.Model):
         """
         self.ensure_one()
         if not self.current_session_id:
-            if not self.company_has_template:
-                raise UserError(_("A Chart of Accounts is not yet installed in your current company. Please install a "
-                                  "Chart of Accounts through the Invoicing/Accounting settings before launching a PoS session." ))
             self._check_company_journal()
             self._check_company_invoice_journal()
             self._check_company_payment()
             self._check_currencies()
+            self._check_payment_method_receivable_accounts()
             self.env['pos.session'].create({
                 'user_id': self.env.uid,
                 'config_id': self.id

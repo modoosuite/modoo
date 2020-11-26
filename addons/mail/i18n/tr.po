@@ -19,11 +19,11 @@
 # Buket Şeker <buket_skr@hotmail.com>, 2019
 # Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2019
 # Umur Akın <umura@projetgrup.com>, 2019
-# Ediz Duman <neps1192@gmail.com>, 2019
 # Yedigen, 2019
 # abc Def <hdogan1974@gmail.com>, 2020
 # Tugay Hatıl <tugayh@projetgrup.com>, 2020
 # Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2020
+# Ediz Duman <neps1192@gmail.com>, 2020
 # Murat Durmuş <muratd@projetgrup.com>, 2020
 # 
 msgid ""
@@ -302,6 +302,13 @@ msgstr ""
 #, python-format
 msgid "<p>Create a channel here.</p>"
 msgstr "<p>Burada bir kanal oluşturun.</p>"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/tours/mail.js:26
+#, python-format
+msgid "<p>Create a public or private channel.</p>"
+msgstr "<p>Genel veya özel bir kanal oluşturun..</p>"
 
 #. module: mail
 #. openerp-web
@@ -1960,7 +1967,7 @@ msgstr "Vade Tarihi"
 #: code:addons/mail/static/src/js/activity.js:0
 #, python-format
 msgid "Due in %d days"
-msgstr "Güne %d kadar"
+msgstr " %d Güne kadar"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_date_deadline_range_type
@@ -3060,7 +3067,7 @@ msgstr "Son Alınan"
 #: model:ir.model.fields,field_description:mail.field_mail_wizard_invite____last_update
 #: model:ir.model.fields,field_description:mail.field_publisher_warranty_contract____last_update
 msgid "Last Modified on"
-msgstr "Son Güncelleme"
+msgstr "Son Düzenleme"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__channel_last_seen_partner_ids
@@ -6117,7 +6124,7 @@ msgstr ""
 #: code:addons/mail/static/src/xml/discuss.xml:0
 #, python-format
 msgid "User is online"
-msgstr ""
+msgstr "Kullanıcı çevrimiçi"
 
 #. module: mail
 #. openerp-web
@@ -6400,6 +6407,14 @@ msgid ""
 msgstr ""
 "Değiştirdiğiniz kanallardan birinde denetleme ile ilgili alanları değiştirme"
 " hakkınız yok."
+
+#. module: mail
+#: code:addons/mail/models/mail_alias.py:89
+#, python-format
+msgid ""
+"You cannot use anything else than unaccented latin characters in the alias "
+"address."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0

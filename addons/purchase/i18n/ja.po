@@ -16,8 +16,10 @@
 # Yoon Nankyung <nankyung.yoon@pro-spire.co.jp>, 2019
 # Tim Siu Lai <tl@roomsfor.hk>, 2019
 # NANIWA Masahiro <naniwa.masahiro@gmail.com>, 2019
-# Yoshi Tashiro <tashiro@roomsfor.hk>, 2020
 # Hau Dao <hau@quartile.co>, 2020
+# Shunho Kin <s-kin@shonan-innovation.co.jp>, 2020
+# Yoshi Tashiro <tashiro@roomsfor.hk>, 2020
+# Noma Yuki, 2020
 # 
 msgid ""
 msgstr ""
@@ -25,7 +27,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-05 12:32+0000\n"
 "PO-Revision-Date: 2019-08-26 09:13+0000\n"
-"Last-Translator: Hau Dao <hau@quartile.co>, 2020\n"
+"Last-Translator: Noma Yuki, 2020\n"
 "Language-Team: Japanese (https://www.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +70,7 @@ msgstr "'見積依頼 - %s' % (object.name)"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
 msgid "3-way matching"
-msgstr ""
+msgstr "3つの方法で照合"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_res_config_settings__module_account_3way_match
@@ -166,6 +168,8 @@ msgid ""
 "<i class=\"fa fa-fw fa-shopping-cart\" role=\"img\" aria-label=\"Shopping "
 "cart\" title=\"Shopping cart\"/>"
 msgstr ""
+"<i class=\"fa fa-fw fa-shopping-cart\" role=\"img\" aria-label=\"Shopping "
+"cart\" title=\"Shopping cart\"/>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
@@ -173,6 +177,8 @@ msgid ""
 "<span class=\"badge badge-info\"><i class=\"fa fa-fw fa-file-text\"/> "
 "Waiting for Bill</span>"
 msgstr ""
+"<span class=\"badge badge-info\"><i class=\"fa fa-fw fa-file-text\"/> "
+"請求書待ち</span>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
@@ -180,6 +186,8 @@ msgid ""
 "<span class=\"badge badge-secondary\"><i class=\"fa fa-fw fa-remove\"/> "
 "Cancelled</span>"
 msgstr ""
+"<span class=\"badge badge-secondary\"><i class=\"fa fa-fw fa-"
+"remove\"/>取消済</span>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
@@ -188,6 +196,8 @@ msgid ""
 "specific.\" aria-label=\"Values set here are company-specific.\" "
 "groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"各企業固有の値\" aria-"
+"label=\"各企業固有の値\" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
@@ -217,7 +227,7 @@ msgstr "<strong>金額</strong>"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<strong>Date Req.</strong>"
-msgstr "<strong>納入予定日</strong>"
+msgstr "<strong>納入期日</strong>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
@@ -248,7 +258,7 @@ msgstr "<strong>プロダクト</strong>"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<strong>Purchase Representative:</strong>"
-msgstr ""
+msgstr "<strong>購買担当者:</strong>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -281,7 +291,7 @@ msgstr "<strong>税金</strong>"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.track_po_line_template
 msgid "<strong>The ordered quantity has been updated.</strong>"
-msgstr ""
+msgstr "<strong>注文数量が更新されました。</strong>"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
@@ -332,6 +342,9 @@ msgid ""
 "  - Manual: the quantity is set manually on the line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
+"製品構成に応じて、受信数量を仕組みによって自動的に計算できます:\n"
+"  - 手動: 数量はライン上で手動で設定されます\n"
+"  - 在庫の動き: 数量は確定済みのピッキングから得られます\n"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_needaction
@@ -346,7 +359,7 @@ msgstr "活動"
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "例外の活動を示す文字装飾"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__activity_state
@@ -408,7 +421,7 @@ msgstr "分析タグ"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
 msgid "Approve Order"
-msgstr ""
+msgstr "オーダー承認"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_attachment_count
@@ -514,6 +527,7 @@ msgid ""
 "product if you directly do a Request for Quotation to one vendor or if you "
 "want a Call for Tenders to compare offers from several vendors."
 msgstr ""
+"入札の呼び出しは、特定の製品セットについて複数のベンダーへの見積依頼を生成する場合に使用されます。1つのベンダーに直接見積依頼を行う場合、または入札依頼で複数のベンダーからのオファーを比較する場合は、製品ごとに構成できます。"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
@@ -577,7 +591,7 @@ msgstr "Eメール作成"
 #. module: purchase
 #: model:ir.model,name:purchase.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "コンフィグ設定"
 
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_purchase_config
@@ -842,7 +856,7 @@ msgstr "アイコン"
 #. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "例外的なアクティビティを示唆するアイコン"
 
 #. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order__message_needaction
@@ -854,7 +868,7 @@ msgstr "チェックされている場合は、新しいメッセージに注意
 #: model:ir.model.fields,help:purchase.field_purchase_order__message_has_error
 #: model:ir.model.fields,help:purchase.field_purchase_order__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "チェックした場合、一部のメッセージが配信エラーが発生しています。"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
@@ -1024,6 +1038,7 @@ msgid ""
 "Orders for reordering products,they will be scheduled that many days earlier"
 " to cope with unexpected vendor delays."
 msgstr ""
+"ベンダーのリードタイムの​​許容誤差。システムが製品を再注文するための発注書を生成するとき、予期しないベンダーの遅延に対処するために、それらは何日も前にスケジュールされます。"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_has_error
@@ -1087,7 +1102,7 @@ msgstr "名称"
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
 msgid "Name, TIN, Email, or Reference"
-msgstr ""
+msgstr "名称/納税者番号/Eメール/参照"
 
 #. module: purchase
 #: code:addons/purchase/controllers/portal.py:0
@@ -1628,7 +1643,7 @@ msgstr "入荷済数量"
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_line__qty_received_method
 msgid "Received Qty Method"
-msgstr ""
+msgstr "受け取った数量メソッド"
 
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
@@ -1722,7 +1737,7 @@ msgstr "担当者"
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "SMS配信エラー"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_line__date_planned
@@ -1883,7 +1898,7 @@ msgstr "税:"
 #. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order_line__display_type
 msgid "Technical field for UX purpose."
-msgstr ""
+msgstr "UXの目的のためのテクニカルフィールド。"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__notes
@@ -1946,7 +1961,7 @@ msgstr "このメモは購買オーダに追加されます。"
 #: code:addons/purchase/models/account_invoice.py:0
 #, python-format
 msgid "This vendor bill has been created from: %s"
-msgstr "この仕入先請求書は次のオーダから作成されています: %s"
+msgstr "この仕入先請求書は次のオーダから作成されました: %s"
 
 #. module: purchase
 #: code:addons/purchase/models/account_invoice.py:0
@@ -2002,7 +2017,7 @@ msgstr "合計金額"
 #. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "記録上の例外アクティビティのタイプ。"
 
 #. module: purchase
 #: code:addons/purchase/models/purchase.py:0
@@ -2224,4 +2239,12 @@ msgstr "販売または購買するもの(在庫品、消耗品、サービス�
 msgid ""
 "Your quotation contains products from company %s whereas your quotation belongs to company %s. \n"
 " Please change the company of your quotation or remove the products from other companies (%s)."
+msgstr ""
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:0
+#, python-format
+msgid ""
+"You cannot change the type of a purchase order line. Instead you should "
+"delete the current line and create a new line of the proper type."
 msgstr ""

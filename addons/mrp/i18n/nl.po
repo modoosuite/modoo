@@ -11,8 +11,8 @@
 # Cas Vissers <casvissers@brahoo.nl>, 2019
 # Melroy van den Berg <webmaster1989@gmail.com>, 2019
 # Martin Trigaux, 2019
-# Yenthe Van Ginneken <yenthespam@gmail.com>, 2020
 # Antoine Gilard <ang@odoo.com>, 2020
+# Yenthe Van Ginneken <yenthespam@gmail.com>, 2020
 # Erwin van der Ploeg <erwin@odooexperts.nl>, 2020
 # 
 msgid ""
@@ -546,6 +546,15 @@ msgstr "Goedkeuren"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_workcenter_search
 msgid "Archived"
 msgstr "Gearchiveerd"
+
+#. module: mrp
+#: code:addons/mrp/models/mrp_production.py:0
+#, python-format
+msgid ""
+"At least one work order has a quantity produced lower than the quantity "
+"produced in the manufacturing order. You must complete the work orders "
+"before posting the inventory."
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
@@ -4859,7 +4868,7 @@ msgstr "Werknemer werkend aan dit werkorder."
 #. module: mrp
 #: model:ir.model,name:mrp.model_mrp_workorder_line
 msgid "Workorder move line"
-msgstr "Werkorder mutatie lijn"
+msgstr "Werkorder mutatieregel"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__worksheet
@@ -5149,7 +5158,7 @@ msgstr "of"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.exception_on_mo
 msgid "ordered instead of"
-msgstr "geordend in plaats van"
+msgstr "besteld in plaats van"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.production_message

@@ -67,8 +67,7 @@ class HrExpense(models.Model):
     currency_id = fields.Many2one('res.currency', string='Currency', readonly=True, states={'draft': [('readonly', False)], 'refused': [('readonly', False)]}, default=lambda self: self.env.company.currency_id)
     analytic_account_id = fields.Many2one('account.analytic.account', string='Analytic Account', check_company=True)
     analytic_tag_ids = fields.Many2many('account.analytic.tag', string='Analytic Tags', states={'post': [('readonly', True)], 'done': [('readonly', True)]}, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
-    account_id = fields.Many2one('account.account', string='Account', default=_default_account_id, domain="[('internal_type', '=', 'other'), ('company_id', '=', company_id)]",
-        states={'refused': [('readonly', False)]}, help="An expense account is expected")
+    account_id = fields.Many2one('account.account', string='Account', default=_default_account_id, domain="[('internal_type', '=', 'other'), ('company_id', '=', company_id)]", help="An expense account is expected")
     description = fields.Text('Notes...', readonly=True, states={'draft': [('readonly', False)], 'reported': [('readonly', False)], 'refused': [('readonly', False)]})
     payment_mode = fields.Selection([
         ("own_account", "Employee (to reimburse)"),
@@ -157,7 +156,7 @@ class HrExpense(models.Model):
             self.product_uom_id = self.product_id.uom_id
             self.tax_ids = self.product_id.supplier_taxes_id.filtered(lambda tax: tax.company_id == self.company_id)  # taxes only from the same company
             account = self.product_id.product_tmpl_id._get_product_accounts()['expense']
-            if account:
+            if account and self.is_editable:
                 self.account_id = account
 
     @api.onchange('company_id')
@@ -256,7 +255,7 @@ class HrExpense(models.Model):
             'res_id': self.sheet_id.id
         }
 
-    def action_submit_expenses(self):
+    def _create_sheet_from_expenses(self):
         if any(expense.state != 'draft' or expense.sheet_id for expense in self):
             raise UserError(_("You cannot report twice the same line!"))
         if len(self.mapped('employee_id')) != 1:
@@ -265,18 +264,24 @@ class HrExpense(models.Model):
             raise UserError(_("You can not create report without product."))
 
         todo = self.filtered(lambda x: x.payment_mode=='own_account') or self.filtered(lambda x: x.payment_mode=='company_account')
+        sheet = self.env['hr.expense.sheet'].create({
+            'company_id': self.company_id.id,
+            'employee_id': self[0].employee_id.id,
+            'name': todo[0].name if len(todo) == 1 else '',
+            'expense_line_ids': [(6, 0, todo.ids)]
+        })
+        sheet._onchange_employee_id()
+        return sheet
+
+    def action_submit_expenses(self):
+        sheet = self._create_sheet_from_expenses()
         return {
             'name': _('New Expense Report'),
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
             'res_model': 'hr.expense.sheet',
             'target': 'current',
-            'context': {
-                'default_expense_line_ids': todo.ids,
-                'default_company_id': self.company_id.id,
-                'default_employee_id': self[0].employee_id.id,
-                'default_name': todo[0].name if len(todo) == 1 else ''
-            }
+            'res_id': sheet.id,
         }
 
     def action_get_attachment_view(self):
@@ -346,9 +351,9 @@ class HrExpense(models.Model):
                 raise UserError(_("No credit account found for the %s journal, please configure one.") % (self.sheet_id.bank_journal_id.name))
             account_dest = self.sheet_id.bank_journal_id.default_credit_account_id.id
         else:
-            if not self.employee_id.address_home_id:
+            if not self.employee_id.sudo().address_home_id:
                 raise UserError(_("No Home Address found for the employee %s, please configure one.") % (self.employee_id.name))
-            partner = self.employee_id.address_home_id.with_context(force_company=self.company_id.id)
+            partner = self.employee_id.sudo().address_home_id.with_context(force_company=self.company_id.id)
             account_dest = partner.property_account_payable_id.id or partner.parent_id.property_account_payable_id.id
         return account_dest
 
@@ -403,6 +408,13 @@ class HrExpense(models.Model):
                 if different_currency:
                     amount = expense.currency_id._convert(amount, company_currency, expense.company_id, account_date)
                     amount_currency = tax['amount']
+
+                if tax['tax_repartition_line_id']:
+                    rep_ln = self.env['account.tax.repartition.line'].browse(tax['tax_repartition_line_id'])
+                    base_amount = self.env['account.move']._get_base_amount_to_display(tax['base'], rep_ln)
+                else:
+                    base_amount = None
+
                 move_line_tax_values = {
                     'name': tax['name'],
                     'quantity': 1,
@@ -412,7 +424,7 @@ class HrExpense(models.Model):
                     'account_id': tax['account_id'] or move_line_src['account_id'],
                     'tax_repartition_line_id': tax['tax_repartition_line_id'],
                     'tag_ids': tax['tag_ids'],
-                    'tax_base_amount': tax['base'],
+                    'tax_base_amount': base_amount,
                     'expense_id': expense.id,
                     'partner_id': partner_id,
                     'currency_id': expense.currency_id.id if different_currency else False,
@@ -448,6 +460,10 @@ class HrExpense(models.Model):
 
         move_line_values_by_expense = self._get_account_move_line_values()
 
+        move_to_keep_draft = self.env['account.move']
+
+        company_payments = self.env['account.payment']
+
         for expense in self:
             company_currency = expense.company_id.currency_id
             different_currency = expense.currency_id != company_currency
@@ -476,7 +492,7 @@ class HrExpense(models.Model):
                     'partner_type': 'supplier',
                     'journal_id': journal.id,
                     'payment_date': expense.date,
-                    'state': 'reconciled',
+                    'state': 'draft',
                     'currency_id': expense.currency_id.id if different_currency else journal_currency.id,
                     'amount': abs(total_amount_currency) if different_currency else abs(total_amount),
                     'name': expense.name,
@@ -488,10 +504,19 @@ class HrExpense(models.Model):
             expense.sheet_id.write({'account_move_id': move.id})
 
             if expense.payment_mode == 'company_account':
+                company_payments |= payment
+                if journal.post_at == 'bank_rec':
+                    move_to_keep_draft |= move
+
                 expense.sheet_id.paid_expense_sheets()
+
+        company_payments.filtered(lambda x: x.journal_id.post_at == 'pay_val').write({'state':'reconciled'})
+        company_payments.filtered(lambda x: x.journal_id.post_at == 'bank_rec').write({'state':'posted'})
 
         # post the moves
         for move in move_group_by_sheet.values():
+            if move in move_to_keep_draft:
+                continue
             move.post()
 
         return move_group_by_sheet
@@ -676,7 +701,7 @@ class HrExpenseSheet(models.Model):
         return self.env['account.journal'].search([('type', 'in', ['cash', 'bank']), ('company_id', '=', default_company_id)], limit=1)
 
     name = fields.Char('Expense Report Summary', required=True)
-    expense_line_ids = fields.One2many('hr.expense', 'sheet_id', string='Expense Lines', states={'approve': [('readonly', True)], 'done': [('readonly', True)], 'post': [('readonly', True)]}, copy=False)
+    expense_line_ids = fields.One2many('hr.expense', 'sheet_id', string='Expense Lines', copy=False)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('submit', 'Submitted'),

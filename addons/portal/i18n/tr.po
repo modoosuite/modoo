@@ -9,13 +9,13 @@
 # Ahmet Altinisik <aaltinisik@altinkaya.com.tr>, 2019
 # Saban Yildiz <sabany@projetgrup.com>, 2019
 # Güven YILMAZ <guvenyilmaz@outlook.com.tr>, 2019
-# Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2019
 # gezgin biri <gezginbiri@hotmail.com>, 2019
 # Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2019
 # Umur Akın <umura@projetgrup.com>, 2019
 # Buket Şeker <buket_skr@hotmail.com>, 2019
 # Murat Kaplan <muratk@projetgrup.com>, 2019
 # Ediz Duman <neps1192@gmail.com>, 2019
+# Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2020
 # Murat Durmuş <muratd@projetgrup.com>, 2020
 # 
 msgid ""
@@ -460,7 +460,7 @@ msgstr "Belgeler"
 #: code:addons/portal/static/src/js/portal_sidebar.js:0
 #, python-format
 msgid "Due in %d days"
-msgstr "Ödeme kalan gün %d "
+msgstr " %d Güne kadar"
 
 #. module: portal
 #. openerp-web
@@ -537,7 +537,7 @@ msgstr "Davet İletisi"
 #: model:ir.model.fields,field_description:portal.field_portal_wizard____last_update
 #: model:ir.model.fields,field_description:portal.field_portal_wizard_user____last_update
 msgid "Last Modified on"
-msgstr "Son Güncelleme"
+msgstr "Son Düzenleme"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_share__write_uid

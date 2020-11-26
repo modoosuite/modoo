@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-29 15:06+0000\n"
-"PO-Revision-Date: 2020-01-29 15:06+0000\n"
+"POT-Creation-Date: 2020-09-05 16:22+0000\n"
+"PO-Revision-Date: 2020-09-05 16:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,63 @@ msgid ""
 "2 - Fees Receipt Issuer (Applies to suppliers who issue fees receipt)\n"
 "3 - End consumer (only receipts)\n"
 "4 - Foreigner"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid ""
+"<br/>\n"
+"\n"
+"                <strong>Customer:</strong>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.custom_header
+msgid ""
+"<br/>\n"
+"                                            <span style=\"line-height: 180%;\">RUT:</span>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.custom_header
+msgid ""
+"<br/>\n"
+"                                            <span>Nº:</span>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid ""
+"<br/>\n"
+"                    <strong>Incoterm:</strong>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid ""
+"<br/>\n"
+"                <strong>Address:</strong>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.report_invoice_document
+#: model_terms:ir.ui.view,arch_db:l10n_cl.report_invoice_document_with_payments
+msgid "<span>Taxes</span>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid "<strong>Due Date:</strong>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid "<strong>GIRO:</strong>"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid "<strong>Payment Terms:</strong>"
 msgstr ""
 
 #. module: l10n_cl
@@ -157,6 +214,11 @@ msgid "DNI"
 msgstr ""
 
 #. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.informations
+msgid "Date:"
+msgstr ""
+
+#. module: l10n_cl
 #: model_terms:ir.ui.view,arch_db:l10n_cl.view_move_form
 msgid "Datos adic. dirección y Ciudad"
 msgstr ""
@@ -169,6 +231,15 @@ msgstr ""
 #. module: l10n_cl
 #: model:ir.model.fields,field_description:l10n_cl.field_account_move__l10n_latam_document_type_id_code
 msgid "Doc Type"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"Document types for foreign customers must be export type (codes 110, 111 or "
+"112) or you                             should define the customer as an end"
+" consumer and use receipts (codes 39 or 41)"
 msgstr ""
 
 #. module: l10n_cl
@@ -275,6 +346,11 @@ msgstr ""
 #. module: l10n_cl
 #: model:ir.model,name:l10n_cl.model_l10n_latam_document_type
 msgid "Latam Document Type"
+msgstr ""
+
+#. module: l10n_cl
+#: model_terms:ir.ui.view,arch_db:l10n_cl.custom_header
+msgid "Logo"
 msgstr ""
 
 #. module: l10n_cl
@@ -397,6 +473,7 @@ msgid "Sequence"
 msgstr ""
 
 #. module: l10n_cl
+#: model:ir.model.fields,field_description:l10n_cl.field_account_bank_statement_import_journal_creation__l10n_cl_sequence_ids
 #: model:ir.model.fields,field_description:l10n_cl.field_account_journal__l10n_cl_sequence_ids
 msgid "Sequences (cl)"
 msgstr ""
@@ -436,8 +513,16 @@ msgstr ""
 #: code:addons/l10n_cl/models/account_move.py:0
 #, python-format
 msgid ""
-"Tax payer type is mandatory for this type of document. Please set the "
-"current tax payer type of this client"
+"Tax payer type and vat number are mandatory for this type of document. "
+"Please set the current tax payer type of this customer"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"Tax payer type and vat number are mandatory for this type of document. "
+"Please set the current tax payer type of this supplier"
 msgstr ""
 
 #. module: l10n_cl
@@ -449,6 +534,46 @@ msgstr ""
 #. module: l10n_cl
 #: model:ir.model,name:l10n_cl.model_account_tax_template
 msgid "Templates for Taxes"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"The DIN document is intended to be used only with RUT 60805000-0 (Tesorería "
+"General de La República)"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"The tax payer type of this supplier is incorrect for the selected type of "
+"document."
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"The tax payer type of this supplier is not entitled to deliver fees "
+"documents"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"The tax payer type of this supplier is not entitled to deliver imports "
+"documents"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid ""
+"This supplier should be defined as foreigner tax payer type and the country "
+"should be different from Chile to register purchases."
 msgstr ""
 
 #. module: l10n_cl
@@ -481,4 +606,10 @@ msgstr ""
 #. module: l10n_cl
 #: model:ir.ui.menu,name:l10n_cl.menu_vendor_bills_and_refunds
 msgid "Vendor Bills and Refunds (CL)"
+msgstr ""
+
+#. module: l10n_cl
+#: code:addons/l10n_cl/models/account_move.py:0
+#, python-format
+msgid "You need a journal without the use of documents for foreign suppliers"
 msgstr ""

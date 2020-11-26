@@ -1032,7 +1032,7 @@ var MailManager =  AbstractService.extend({
         this._rpc({
                 model: resModel,
                 method: 'get_formview_id',
-                args: [[resID], session.user_context],
+                args: [[resID], session.user_context.uid],
             })
             .then(function (viewID) {
                 self._redirectToDocument(resModel, resID, viewID);
@@ -1065,7 +1065,7 @@ var MailManager =  AbstractService.extend({
      */
     _redirectPartner: function (resModel, resID, dmRedirection) {
         var self = this;
-        var domain = [['partner_id', '=', resID]];
+        var domain = [['partner_id', '=', resID], ['share', '=', false]];
         this._rpc({
                 model: 'res.users',
                 method: 'search',

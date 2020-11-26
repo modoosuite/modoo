@@ -7,6 +7,8 @@
 # Cozmin Candea <office@terrabit.ro>, 2019
 # Martin Trigaux, 2019
 # Dorin Hongu <dhongu@gmail.com>, 2020
+# Foldi Robert <foldirobert@nexterp.ro>, 2020
+# Hongu Cosmin <cosmin513@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -14,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-05 12:34+0000\n"
 "PO-Revision-Date: 2019-08-26 09:10+0000\n"
-"Last-Translator: Dorin Hongu <dhongu@gmail.com>, 2020\n"
+"Last-Translator: Hongu Cosmin <cosmin513@gmail.com>, 2020\n"
 "Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,17 +27,17 @@ msgstr ""
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.res_config_settings_view_form
 msgid "<span class=\"o_form_label\">End Date Contract Alert</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Alertă Data Încheiere Contract</span>"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.res_config_settings_view_form
 msgid "<span> days before the end date</span>"
-msgstr ""
+msgstr "<span> zile înainte de data de încheiere</span>"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.res_config_settings_view_form
 msgid "<span>Send an alert </span>"
-msgstr ""
+msgstr "<span>Trimiteți o alertă </span>"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
@@ -99,7 +101,7 @@ msgstr "Activități"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_exception_decoration
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Activitate Excepție Decorare"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_state
@@ -127,7 +129,7 @@ msgstr "Detalii Suplimentare"
 #. module: fleet
 #: model:res.groups,name:fleet.fleet_group_manager
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_6
@@ -154,7 +156,7 @@ msgstr "Valoare"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "Apply Change"
-msgstr ""
+msgstr "Aplicare Modificare"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
@@ -189,7 +191,7 @@ msgstr "Număr atașamente"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_kanban
 msgid "Attention: renewal overdue"
-msgstr ""
+msgstr "Atenție: reînnoire expirată"
 
 #. module: fleet
 #: model:ir.model.fields.selection,name:fleet.selection__fleet_vehicle__transmission__automatic
@@ -243,7 +245,7 @@ msgstr "Inlocuirea Placutelor de Frana"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__brand_id
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Brand"
-msgstr ""
+msgstr "Brand"
 
 #. module: fleet
 #: model:ir.model,name:fleet.model_fleet_vehicle_model_brand
@@ -308,7 +310,7 @@ msgstr "Categoria costului"
 #: model:mail.message.subtype,description:fleet.mt_fleet_driver_updated
 #: model:mail.message.subtype,name:fleet.mt_fleet_driver_updated
 msgid "Changed Driver"
-msgstr ""
+msgstr "Șofer Schimbat"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_16
@@ -361,7 +363,7 @@ msgstr "Culoarea Vehiculului"
 #. module: fleet
 #: model:fleet.vehicle.tag,name:fleet.vehicle_tag_compact
 msgid "Compact"
-msgstr ""
+msgstr "Compact"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__company_id
@@ -406,7 +408,7 @@ msgstr "Costuri Contractuale pe Luna"
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__contract_count
 msgid "Contract Count"
-msgstr ""
+msgstr "Nr. Contracte"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__expiration_date
@@ -416,7 +418,7 @@ msgstr "Data de expirare a contractului"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
 msgid "Contract Informations"
-msgstr ""
+msgstr "Informații Contract"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__ins_ref
@@ -461,7 +463,7 @@ msgstr "Contract de Reinnoit"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_kanban
 msgid "Contract(s)"
-msgstr ""
+msgstr "Contract(e)"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__log_contracts
@@ -513,7 +515,7 @@ msgstr "Costul asociat unui vehicul"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_form
 msgid "Cost that is paid only once at the creation of the contract"
-msgstr ""
+msgstr "Cost care se plătește o singură dată la crearea contractului"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_cost__cost_subtype_id
@@ -577,22 +579,22 @@ msgstr ""
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_model_brand_action
 msgid "Create a new manufacturer"
-msgstr ""
+msgstr "Creați un nou producător"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_model_action
 msgid "Create a new model"
-msgstr ""
+msgstr "Creați un model nou"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_odometer_action
 msgid "Create a new odometer log"
-msgstr ""
+msgstr "Creați un nou jurnal odometer"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_services_action
 msgid "Create a new service entry"
-msgstr ""
+msgstr "Creați o nouă intrare de serviciu"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_contract_types_action
@@ -602,17 +604,17 @@ msgstr ""
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_service_types_action
 msgid "Create a new type of service"
-msgstr ""
+msgstr "Creați un nou tip de serviciu"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_action
 msgid "Create a new vehicle"
-msgstr ""
+msgstr "Creați un vehicul nou"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_state_action
 msgid "Create a new vehicle status"
-msgstr ""
+msgstr "Creați o stare nouă a vehiculului"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_service_type__create_uid
@@ -663,7 +665,7 @@ msgstr "Moneda"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Current Driver"
-msgstr ""
+msgstr "Șofer Actual"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__state_id
@@ -710,12 +712,12 @@ msgstr ""
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__acquisition_date
 msgid "Date when the vehicle has been immatriculated"
-msgstr ""
+msgstr "Data la care vehiculul a fost înmatriculat"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_res_config_settings__delay_alert_contract
 msgid "Delay alert contract outdated"
-msgstr ""
+msgstr "Întârziere alertă contract învechit"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_2
@@ -756,7 +758,7 @@ msgstr "Număr de uși"
 #. module: fleet
 #: model:fleet.vehicle.state,name:fleet.fleet_vehicle_state_downgraded
 msgid "Downgraded"
-msgstr ""
+msgstr "Retrogradat"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__driver_id
@@ -777,22 +779,22 @@ msgstr "Soferul vehiculului"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Drivers"
-msgstr ""
+msgstr "Șoferi"
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "Drivers History"
-msgstr ""
+msgstr "Istorie Șoferi"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__history_count
 msgid "Drivers History Count"
-msgstr ""
+msgstr "Numărul Istorie Șoferi"
 
 #. module: fleet
 #: model:ir.model,name:fleet.model_fleet_vehicle_assignation_log
 msgid "Drivers history on a vehicle"
-msgstr ""
+msgstr "Istoric șoferi pe un vehicul"
 
 #. module: fleet
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_log_contract_action
@@ -807,6 +809,8 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:fleet.fleet_vehicle_service_types_action
 msgid "Each service can used in contracts, as a standalone service or both."
 msgstr ""
+"Fiecare serviciu poate fi utilizat în contracte, ca serviciu independent sau"
+" ambele."
 
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_costs_view_search
@@ -842,7 +846,7 @@ msgstr "Dată sfârșit"
 #. module: fleet
 #: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_18
@@ -884,7 +888,7 @@ msgstr ""
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__first_contract_date
 msgid "First Contract Date"
-msgstr ""
+msgstr "Prima Dată a Contractului"
 
 #. module: fleet
 #: model:ir.module.category,name:fleet.module_fleet_category
@@ -1117,7 +1121,7 @@ msgstr "Pictogramă"
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__activity_exception_icon
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_contract__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Pictograma pentru a indica o activitate de excepție."
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__message_needaction
@@ -1329,7 +1333,7 @@ msgstr "Sigla"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_main_attachment_id
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Atașament principal"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_model_brand__name
@@ -1387,7 +1391,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_has_error
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Eroare livrare mesaj"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_ids
@@ -1476,7 +1480,7 @@ msgstr "Cerere nouă"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_date_deadline
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Data limită pentru următoarea activitate"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__activity_summary
@@ -1534,7 +1538,7 @@ msgstr "Numărul de uși ale vehiculului"
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__message_has_error_counter
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_contract__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numărul de erori"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__message_needaction_counter
@@ -1794,7 +1798,7 @@ msgstr "Detalii alimentare"
 #. module: fleet
 #: model:fleet.vehicle.state,name:fleet.fleet_vehicle_state_registered
 msgid "Registered"
-msgstr ""
+msgstr "Înregistrat"
 
 #. module: fleet
 #: code:addons/fleet/models/fleet_vehicle_cost.py:0
@@ -2159,7 +2163,7 @@ msgstr "Tip"
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__activity_exception_decoration
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_log_contract__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipul activității de excepție din înregistrare."
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle__vin_sn

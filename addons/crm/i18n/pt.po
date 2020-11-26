@@ -5,15 +5,16 @@
 # Translators:
 # Pedro Filipe <pedro2.10@hotmail.com>, 2019
 # Tiago Baptista, 2019
-# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2019
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2019
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2019
 # José Gomes <jg@opencloud.pro>, 2019
 # Vitor Fernandes <vmlf01@gmail.com>, 2019
 # Pedro Castro Silva <pedrocs@exo.pt>, 2019
 # Diogo Fonseca <dsf@thinkopensolutions.pt>, 2019
 # Martin Trigaux, 2019
-# Manuela Silva <manuelarodsilva@gmail.com>, 2019
+# Manuela Silva <manuelarodsilva@gmail.com>, 2020
 # Nuno Silva <nuno.silva@arxi.pt>, 2020
+# João Carvalho <jpldcarvalho+github@gmail.com>, 2020
 # Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2020
 # 
 msgid ""
@@ -132,6 +133,8 @@ msgid ""
 "<i class=\"fa fa-fw fa-calendar\" aria-label=\"Meetings\" role=\"img\" "
 "title=\"Meetings\"/>"
 msgstr ""
+"<i class=\"fa fa-fw fa-calendar\" aria-label=\"Meetings\" role=\"img\" "
+"title=\"Meetings\"/>"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_lead_partner_kanban_view
@@ -139,6 +142,8 @@ msgid ""
 "<i class=\"fa fa-fw fa-star\" aria-label=\"Favorites\" role=\"img\" "
 "title=\"Favorites\"/>"
 msgstr ""
+"<i class=\"fa fa-fw fa-star\" aria-label=\"Favorites\" role=\"img\" "
+"title=\"Favorites\"/>"
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_lead_view_form
@@ -146,6 +151,8 @@ msgid ""
 "<i class=\"fa fa-gear\" role=\"img\" title=\"Switch to automatic "
 "probability\" aria-label=\"Switch to automatic probability\"/>"
 msgstr ""
+"<i class=\"fa fa-gear\" role=\"img\" title=\"Switch to automatic "
+"probability\" aria-label=\"Switch to automatic probability\"/>"
 
 #. module: crm
 #: code:addons/crm/models/crm_team.py:0
@@ -233,7 +240,7 @@ msgstr ""
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Marcador de Exceções de Atividade"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__activity_state
@@ -372,7 +379,7 @@ msgstr "Etapas de CRM"
 #. module: crm
 #: model:ir.model,name:crm.model_calendar_event
 msgid "Calendar Event"
-msgstr ""
+msgstr "Evento do Calendário"
 
 #. module: crm
 #: model:mail.activity.type,name:crm.mail_activity_demo_call_demo
@@ -424,6 +431,8 @@ msgstr ""
 msgid ""
 "Choose an activity type.<br/>You can customize them in the general settings."
 msgstr ""
+"Escolha um tipo de atividade.<br/>Pode personaliizá-los nas configurações "
+"gerias."
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__city
@@ -517,7 +526,7 @@ msgstr ""
 #. module: crm
 #: model:ir.model,name:crm.model_res_config_settings
 msgid "Config Settings"
-msgstr "config configurações"
+msgstr "Definições de Configuração"
 
 #. module: crm
 #: model:ir.ui.menu,name:crm.crm_menu_config
@@ -531,7 +540,7 @@ msgstr "Configuração"
 #, python-format
 msgid "Configuration options are available in the Settings app."
 msgstr ""
-"As opções de configuração estão disponíveis na aplicação 'Configurações'."
+"As opções de configuração estão disponíveis na aplicação «Definições»."
 
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.sales_team_form_view_in_crm
@@ -1672,6 +1681,11 @@ msgid "My Pipeline"
 msgstr "O Meu Canal"
 
 #. module: crm
+#: model_terms:ir.ui.view,arch_db:crm.quick_create_opportunity_form
+msgid "Name"
+msgstr "Nome"
+
+#. module: crm
 #: model:crm.stage,name:crm.stage_lead1
 msgid "New"
 msgstr "Novo"
@@ -2124,7 +2138,7 @@ msgstr "Restaurar"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Erro de Envio de SMS"
 
 #. module: crm
 #: model:ir.ui.menu,name:crm.crm_menu_sales
@@ -2134,7 +2148,7 @@ msgstr "Vendas"
 #. module: crm
 #: model_terms:ir.ui.view,arch_db:crm.crm_case_tree_view_leads
 msgid "Sales Person"
-msgstr ""
+msgstr "Vendedor"
 
 #. module: crm
 #: model:ir.model,name:crm.model_crm_team
@@ -2158,7 +2172,7 @@ msgstr "Equipa de Vendas"
 #: code:addons/crm/models/crm_lead.py:0
 #, python-format
 msgid "Sales Team Settings"
-msgstr ""
+msgstr "Definições da Equipa de Vendas"
 
 #. module: crm
 #: model:ir.ui.menu,name:crm.crm_team_config
@@ -2223,7 +2237,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:crm.crm_config_settings_action
 #: model:ir.ui.menu,name:crm.crm_config_settings_menu
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Definições"
 
 #. module: crm
 #: model:res.groups,name:crm.group_use_lead
@@ -2276,6 +2290,8 @@ msgid ""
 "Specific team that uses this stage. Other teams will not be able to see or "
 "use this stage."
 msgstr ""
+"Equipa específica que usa este estado. Outras equipas não poder ver ou "
+"utilizar este estado."
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_activity_report__stage_id
@@ -2692,22 +2708,22 @@ msgstr "Nós não temos pessoas/habilidades"
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__website
 msgid "Website"
-msgstr "Website"
+msgstr "Site da Web"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_lead__website_message_ids
 msgid "Website Messages"
-msgstr "Mensagens do Website"
+msgstr "Mensagens do Site da Web"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__website_message_ids
 msgid "Website communication history"
-msgstr "Histórico de Comunicação do Website"
+msgstr "Histórico de comunicação do site da Web"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__website
 msgid "Website of the contact"
-msgstr ""
+msgstr "Site da Web de contacto"
 
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__team_id

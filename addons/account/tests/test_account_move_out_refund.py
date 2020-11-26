@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo.addons.account.tests.invoice_test_common import InvoiceTestCommon
+from odoo.addons.account.tests.account_test_savepoint import AccountTestInvoicingCommon
 from odoo.tests.common import Form
 from odoo.tests import tagged
 from odoo.exceptions import UserError
@@ -7,11 +7,11 @@ from odoo import fields
 
 
 @tagged('post_install', '-at_install')
-class TestAccountMoveOutRefundOnchanges(InvoiceTestCommon):
+class TestAccountMoveOutRefundOnchanges(AccountTestInvoicingCommon):
 
     @classmethod
-    def setUpClass(cls):
-        super(TestAccountMoveOutRefundOnchanges, cls).setUpClass()
+    def setUpClass(cls, chart_template_ref=None):
+        super().setUpClass(chart_template_ref=chart_template_ref)
 
         cls.invoice = cls.init_invoice('out_refund')
 
@@ -466,7 +466,7 @@ class TestAccountMoveOutRefundOnchanges(InvoiceTestCommon):
                 'debit': 80.0,
                 'credit': 0.0,
                 'date_maturity': False,
-                'tax_exigible': True,
+                'tax_exigible': False,
             },
             {
                 'name': child_tax_1.name,
@@ -486,7 +486,7 @@ class TestAccountMoveOutRefundOnchanges(InvoiceTestCommon):
                 'debit': 120.0,
                 'credit': 0.0,
                 'date_maturity': False,
-                'tax_exigible': True,
+                'tax_exigible': False,
             },
             {
                 'name': child_tax_2.name,

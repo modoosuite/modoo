@@ -3,17 +3,14 @@
 # 	* sale_timesheet
 # 
 # Translators:
-# Jeanphy <hzh0292@qq.com>, 2019
 # e2f <projects@e2f.com>, 2019
 # mrshelly <mrshelly@hotmail.com>, 2019
 # niulin lnc. <admin@niulin.net>, 2019
 # liAnGjiA <liangjia@qq.com>, 2019
 # e2f_cn c5 <jarvisn@ecinnovations.com>, 2019
 # bf2549c5415a9287249cba2b8a5823c7, 2019
-# guohuadeng <guohuadeng@hotmail.com>, 2019
 # diaojiaolou <124412206@qq.com>, 2019
 # ChinaMaker <liuct@chinamaker.net>, 2019
-# Felix Yuen <fyu@odoo.com>, 2019
 # inspur qiuguodong <qiuguodong@inspur.com>, 2019
 # Martin Trigaux, 2019
 # v2exerer <9010446@qq.com>, 2019
@@ -22,7 +19,9 @@
 # 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2019
 # keecome <7017511@qq.com>, 2019
 # 敬雲 林 <chingyun@yuanchih-consult.com>, 2019
+# guohuadeng <guohuadeng@hotmail.com>, 2020
 # Jeffery CHEN Fan <jeffery9@gmail.com>, 2020
+# r <263737@qq.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -30,7 +29,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-27 09:22+0000\n"
 "PO-Revision-Date: 2019-08-26 09:14+0000\n"
-"Last-Translator: Jeffery CHEN Fan <jeffery9@gmail.com>, 2020\n"
+"Last-Translator: r <263737@qq.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,7 +124,7 @@ msgid ""
 msgstr ""
 "根据产品配置，交货数量可以通过机制自动计算：\n"
 " - 手动：在线手动输入数量\n"
-" - 费用分析：数量是来自过帐费用的数量总和\n"
+" - 费用分析：数量是来自过账费用的数量总和\n"
 " - 时间表：数量是与此销售线相关联的任务记录的时数\n"
 " - 库存变动：数量来自已确认的选择\n"
 
@@ -331,7 +330,7 @@ msgstr "在现有项目中创建任务"
 #. module: sale_timesheet
 #: model:ir.model.fields.selection,name:sale_timesheet.selection__product_template__service_tracking__task_in_project
 msgid "Create a task in sales order's project"
-msgstr ""
+msgstr "在销售订单的项目中创建任务"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__create_uid
@@ -550,12 +549,12 @@ msgstr "是服务"
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_account_move
 msgid "Journal Entries"
-msgstr "日记账分录"
+msgstr "会计凭证"
 
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_account_move_line
 msgid "Journal Item"
-msgstr "日记账项"
+msgstr "会计分录"
 
 #. module: sale_timesheet
 #: model:product.product,name:sale_timesheet.product_service_deliver_timesheet_2
@@ -607,7 +606,7 @@ msgid ""
 "Timesheets on contract: Invoice based on the tracked hours on the related timesheet.\n"
 "Create a task and track hours: Create a task on the sales order validation and track the work hours."
 msgstr ""
-"手动设置订单数量：基于手动输入数量的发票，不创建分析帐户。\n"
+"手动设置订单数量：基于手动输入数量的发票，不创建分析账户。\n"
 "时间表：在合同的基础上对相关发票跟踪小时时间表。\n"
 "创建任务和跟踪时间：在销售订单验证上创建任务并跟踪工作时间。"
 
@@ -721,6 +720,8 @@ msgid ""
 "On Sales order confirmation, this product can generate a project and/or task.         From those, you can track the service you are selling.\n"
 "         'In sale order's project': Will use the sale order's configured project if defined or fallback to         creating a new project based on the selected template."
 msgstr ""
+"        在销售订单确认时，该产品可以生成项目或任务。由此，你可以跟踪你正在销售的服务。\n"
+"        “销售订单中的项目”:如果定义了，将使用销售订单配置的项目，或者根据选择的模板创建一个新项目。"
 
 #. module: sale_timesheet
 #: model:ir.model.fields.selection,name:sale_timesheet.selection__product_template__service_policy__ordered_timesheet
@@ -971,17 +972,17 @@ msgstr ""
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_project_project__sale_order_id
 msgid "Sales order to which the project is linked."
-msgstr ""
+msgstr "项目关联单销售订单。"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_project_task__sale_order_id
 msgid "Sales order to which the task is linked."
-msgstr ""
+msgstr "任务所关联的销售订单。"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_sale_order__project_id
 msgid "Select a non billable project on which tasks can be created."
-msgstr ""
+msgstr "选择可以在其上创建任务的非计费项目。"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_product_product__project_id

@@ -41,6 +41,18 @@ msgid "\" alert with a"
 msgstr "\" попередження з"
 
 #. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" can not be empty."
+msgstr "\"URL для\" не може бути пустою."
+
+#. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" must start with a leading slash."
+msgstr "\"URL для\" повинна починатися зі скісної риски."
+
+#. module: website
 #: model:ir.model.fields,field_description:website.field_website_visitor__page_count
 msgid "# Visited Pages"
 msgstr "К-сть переглянутих сторінок"
@@ -382,6 +394,8 @@ msgid ""
 "<i class=\"fa fa-arrow-right\"/>\n"
 "                                            Enable billing on your Google Project"
 msgstr ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                                           Увімкніть виставлення рахунків у вашому Google Project"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -5829,6 +5843,14 @@ msgid "White"
 msgstr "Білий"
 
 #. module: website
+#: model:ir.model.fields,help:website.field_res_config_settings__website_domain
+#: model:ir.model.fields,help:website.field_website__domain
+msgid "Will be prefixed by http in canonical URLs if no scheme is specified"
+msgstr ""
+"Буде встановлено префіксом http у канонічних URL-адресах, якщо не вказана "
+"схема"
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_quotes_carousel
 #: model_terms:ir.ui.view,arch_db:website.s_tabs
 msgid ""
@@ -5928,6 +5950,12 @@ msgid ""
 msgstr ""
 "Ви приховали цю сторінку з результатів пошуку. Він не буде індексований "
 "пошуковими системами."
+
+#. module: website
+#: code:addons/website/models/website.py:162
+#, python-format
+msgid "You must keep at least one website."
+msgstr ""
 
 #. module: website
 #. openerp-web
